@@ -942,12 +942,29 @@ function adminLogout() {
 }
 document.addEventListener('click', () => closeAvatarMenu());
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', async () => {
   const t = sessionStorage.getItem('adm_t');
-  if (t) { token = t; adminName = sessionStorage.getItem('adm_n')||'Admin'; adminEmail = sessionStorage.getItem('adm_e')||''; activateAdmin(); }
+  if (t) {
+    token = t; adminName = sessionStorage.getItem('adm_n')||'Admin'; adminEmail = sessionStorage.getItem('adm_e')||'';
+    try {
+      const me = await apiFetch('/auth/me');
+      if (me.ok && me.role === 'admin') { activateAdmin(); }
+      else { forceLogout(); }
+    } catch(e) { forceLogout(); }
+  }
 });
 
 function adminLogout() { sessionStorage.clear(); window.location.href = 'index.html'; }
+
+function forceLogout() {
+  sessionStorage.removeItem('adm_t');
+  sessionStorage.removeItem('adm_n');
+  sessionStorage.removeItem('adm_e');
+  token = ''; adminName = ''; adminEmail = '';
+  document.getElementById('mainWrap').classList.add('hidden');
+  document.getElementById('accessGate').classList.remove('hidden');
+  document.getElementById('gateErr').textContent = 'Session expired — please sign in again.';
+}
 
 /* ── API helper ─────────────────────────────────── */
 async function apiFetch(path, method='GET', body=null, auth=true) {
@@ -957,6 +974,7 @@ async function apiFetch(path, method='GET', body=null, auth=true) {
   if (body) opts.body = JSON.stringify(body);
   const res  = await fetch(API + path, opts);
   const data = await res.json();
+  if (auth && res.status === 401) { forceLogout(); throw new Error('session_expired'); }
   return { ...data, ok: res.ok, status: res.status };
 }
 
