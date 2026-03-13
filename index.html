@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRABILITY Finance – Smart Finance, Better Decisions</title>
+  <meta name="description" content="MRABILITY Finance is your one-stop fintech platform for loans, credit cards, credit score checks, and financial calculators." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">MRABILITY <span class="accent">Finance</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <button class="nav-btn">Loans <span class="chevron">▾</span></button>
+          <div class="dropdown-menu">
+            <a href="personal-loan.html">Personal Loan</a>
+            <a href="home-loan.html">Home Loan</a>
+            <a href="business-loan.html">Business Loan</a>
+            <a href="car-loan.html">Car Loan</a>
+            <a href="lap.html">Loan Against Property</a>
+            <a href="used-car-loan.html">Used Car Loan</a>
+            <a href="used-car-loan.html">Two Wheeler Loan</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-btn">Credit Cards <span class="chevron">▾</span></button>
+          <div class="dropdown-menu">
+            <a href="credit-cards.html">All Credit Cards</a>
+            <a href="credit-cards.html">Travel Cards</a>
+            <a href="credit-cards.html">Cashback Cards</a>
+            <a href="credit-cards.html">Rewards Cards</a>
+            <a href="credit-cards.html">Premium Cards</a>
+          </div>
+        </div>
+        <a href="credit-score.html" class="nav-link">Credit Score</a>
+        <div class="nav-dropdown">
+          <button class="nav-btn">Calculators <span class="chevron">▾</span></button>
+          <div class="dropdown-menu">
+            <a href="calculators.html">EMI Calculator</a>
+            <a href="calculators.html">Eligibility Calculator</a>
+            <a href="calculators.html">SIP Calculator</a>
+            <a href="calculators.html">FD Calculator</a>
+            <a href="calculators.html">PPF Calculator</a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">Banks</a>
+        <a href="about.html" class="nav-link">Blog</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-ghost" onclick="openLoginModal()">Login</button>
+        <a href="javascript:void(0)" class="btn-primary" onclick="openLoginModal('register');">Get Started</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">India's Trusted Fintech Platform</div>
+        <h1 class="hero-title">
+          Smart Finance for<br />
+          <span class="hero-rotate-text" id="heroRotate">Home Loans</span>
+        </h1>
+        <p class="hero-desc">
+          Compare 95+ banks, get instant approvals, and access personalised loan offers — all in one place. No paperwork hassle.
+        </p>
+        <div class="hero-actions">
+          <a href="personal-loan.html" class="btn-primary btn-lg">Apply Now</a>
+          <a href="credit-score.html" class="btn-outline btn-lg">Check Credit Score Free</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <strong>5.8L+</strong><span>Customers</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <strong>95+</strong><span>Banks</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <strong>₹61K Cr+</strong><span>Disbursed</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <strong>150+</strong><span>Cities</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="loan-card lc-back">
+            <div class="lc-label">Business Loan</div>
+            <div class="lc-rate">From 12.5%</div>
+          </div>
+          <div class="loan-card lc-mid">
+            <div class="lc-label">Personal Loan</div>
+            <div class="lc-rate">From 10.99%</div>
+          </div>
+          <div class="loan-card lc-front">
+            <div class="lc-header">
+              <span class="lc-label">Home Loan</span>
+              <span class="lc-badge">Best Offer</span>
+            </div>
+            <div class="lc-rate">From 8.50%<small> p.a.</small></div>
+            <div class="lc-meta">
+              <div><span>Amount</span><strong>Up to ₹5 Cr</strong></div>
+              <div><span>Tenure</span><strong>Up to 30 yrs</strong></div>
+            </div>
+            <div class="lc-progress-bar"><div class="lc-progress-fill"></div></div>
+            <div class="lc-footer">Quick Approval in 48 Hours</div>
+          </div>
+        </div>
+        <div class="hero-score-widget">
+          <div class="score-label">Your Credit Score</div>
+          <div class="score-ring">
+            <svg viewBox="0 0 120 120">
+              <circle class="score-track" cx="60" cy="60" r="50" />
+              <circle class="score-fill" cx="60" cy="60" r="50" id="scoreCircle" />
+            </svg>
+            <div class="score-number">750</div>
+          </div>
+          <div class="score-status excellent">Excellent</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8fafc"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <div class="stat-icon">🏠</div>
+        <div class="stat-info"><strong class="counter" data-target="500000">0</strong><span>Home Loans Processed</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">💳</div>
+        <div class="stat-info"><strong class="counter" data-target="250000">0</strong><span>Credit Cards Issued</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-info"><strong class="counter" data-target="98">0</strong><span>% Customer Satisfaction</span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon">🏦</div>
+        <div class="stat-info"><strong class="counter" data-target="95">0</strong><span>Banking Partners</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS SECTION ===== -->
+  <section class="products section-pad" id="products">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Our Products</div>
+        <h2 class="section-title">Find the Right Financial Product</h2>
+        <p class="section-sub">Personalised offers from 95+ banks and NBFCs — compare, choose, and apply in minutes.</p>
+      </div>
+      <div class="products-grid">
+        <a href="personal-loan.html" class="product-card" style="--card-color: #6366f1">
+          <div class="product-icon">💰</div>
+          <h3>Personal Loan</h3>
+          <p>Up to ₹40L at 10.99% p.a.</p>
+          <div class="product-cta">Apply Now →</div>
+        </a>
+        <a href="home-loan.html" class="product-card" style="--card-color: #0ea5e9">
+          <div class="product-icon">🏡</div>
+          <h3>Home Loan</h3>
+          <p>Up to ₹5Cr at 8.50% p.a.</p>
+          <div class="product-cta">Apply Now →</div>
+        </a>
+        <a href="business-loan.html" class="product-card" style="--card-color: #10b981">
+          <div class="product-icon">🏢</div>
+          <h3>Business Loan</h3>
+          <p>Instant funds for growth</p>
+          <div class="product-cta">Apply Now →</div>
+        </a>
+        <a href="car-loan.html" class="product-card" style="--card-color: #f59e0b">
+          <div class="product-icon">🚗</div>
+          <h3>Car Loan</h3>
+          <p>Drive your dream today</p>
+          <div class="product-cta">Apply Now →</div>
+        </a>
+        <a href="credit-cards.html" class="product-card" style="--card-color: #ec4899">
+          <div class="product-icon">💳</div>
+          <h3>Credit Card</h3>
+          <p>Top cards with rewards</p>
+          <div class="product-cta">Apply Now →</div>
+        </a>
+        <a href="credit-score.html" class="product-card" style="--card-color: #8b5cf6">
+          <div class="product-icon">📊</div>
+          <h3>Credit Score</h3>
+          <p>Check CIBIL for FREE</p>
+          <div class="product-cta">Check Now →</div>
+        </a>
+        <a href="lap.html" class="product-card" style="--card-color: #14b8a6">
+          <div class="product-icon">🏗️</div>
+          <h3>Loan Against Property</h3>
+          <p>Lowest interest rate</p>
+          <div class="product-cta">Apply Now →</div>
+        </a>
+        <a href="used-car-loan.html" class="product-card" style="--card-color: #f97316">
+          <div class="product-icon">🛵</div>
+          <h3>Two Wheeler Loan</h3>
+          <p>Quick bike financing</p>
+          <div class="product-cta">Apply Now →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FREE CREDIT SCORE BANNER ===== -->
+  <section class="cibil-banner">
+    <div class="container cibil-inner">
+      <div class="cibil-text">
+        <h2>Get Your CIBIL Credit Report <span>Worth ₹500 for FREE</span></h2>
+        <p>5 Lakh+ people have already checked their credit score. Know where you stand!</p>
+        <ul class="cibil-features">
+          <li>✓ Instant result — no waiting</li>
+          <li>✓ No impact on credit score</li>
+          <li>✓ Personalised tips to improve</li>
+        </ul>
+        <a href="credit-score.html" class="btn-primary btn-lg">Check Free Credit Score</a>
+      </div>
+      <div class="cibil-graphic">
+        <div class="gauge-wrapper">
+          <svg class="gauge-svg" viewBox="0 0 260 170" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#ef4444"/>
+                <stop offset="20%"  stop-color="#f97316"/>
+                <stop offset="40%"  stop-color="#facc15"/>
+                <stop offset="65%"  stop-color="#84cc16"/>
+                <stop offset="100%" stop-color="#10b981"/>
+              </linearGradient>
+            </defs>
+            <!-- Background track -->
+            <path d="M 30 130 A 100 100 0 0 1 230 130"
+              fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="20" stroke-linecap="round"/>
+            <!-- Coloured arc -->
+            <path d="M 30 130 A 100 100 0 0 1 230 130"
+              fill="none" stroke="url(#gaugeGrad)" stroke-width="20" stroke-linecap="round"/>
+            <!-- Tick marks at 0%, 25%, 50%, 75%, 100% of arc -->
+            <line x1="30" y1="130" x2="30" y2="118" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="59" y1="63"  x2="66" y2="73"  stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="130" y1="30" x2="130" y2="43" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="201" y1="63" x2="194" y2="73" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <line x1="230" y1="130" x2="230" y2="118" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+            <!-- Needle — 780 score = 80% of 300-900 range = 80% of 180° = 144° from left -->
+            <g class="gauge-needle" style="transform-origin:130px 130px">
+              <line x1="130" y1="130" x2="130" y2="42"
+                stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <!-- Centre dot -->
+            <circle cx="130" cy="130" r="8" fill="#fff" opacity="0.95"/>
+            <circle cx="130" cy="130" r="4" fill="#7c3aed"/>
+            <!-- Score value -->
+            <text x="130" y="105" text-anchor="middle" font-size="32" font-weight="900" fill="#fff" font-family="system-ui,sans-serif">780</text>
+            <text x="130" y="120" text-anchor="middle" font-size="10" font-weight="600" fill="rgba(255,255,255,0.7)" letter-spacing="0.5">CIBIL Score</text>
+            <!-- Rating label -->
+            <text x="130" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#86efac">Excellent</text>
+            <!-- Scale labels -->
+            <text x="22"  y="148" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">300</text>
+            <text x="238" y="148" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.55)">900</text>
+          </svg>
+          <style>
+            @keyframes needleSweep {
+              from { transform: rotate(-90deg); }
+              to   { transform: rotate(54deg); }
+            }
+            .gauge-needle {
+              animation: needleSweep 2s cubic-bezier(.4,0,.2,1) forwards;
+              transform: rotate(54deg);
+            }
+            .gauge-svg {
+              width: 100%;
+              max-width: 280px;
+              height: auto;
+              filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25));
+              display: block;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="how-it-works section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">How It Works</div>
+        <h2 class="section-title">Easy. Convenient. Quick.</h2>
+        <p class="section-sub">Get your loan approved in 4 simple steps — no branch visit required.</p>
+      </div>
+      <div class="steps-wrapper">
+        <div class="steps-line"></div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <div class="step-icon">📋</div>
+            <h3>Check Eligibility</h3>
+            <p>Fill in your basic details in under 2 minutes to see your personalised offers.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <div class="step-icon">🤖</div>
+            <h3>AI-Powered Compare</h3>
+            <p>Our AI matches you with the best lender across 90+ criteria for 90% success rate.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <div class="step-icon">📱</div>
+            <h3>Apply Digitally</h3>
+            <p>Complete your bank application 100% digitally — no physical documents needed.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <div class="step-icon">💸</div>
+            <h3>Get Disbursed</h3>
+            <p>Money in your account within 24–48 hours of final approval. Fast, not weeks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="steps-cta">
+        <a href="personal-loan.html" class="btn-primary btn-lg">Get Started Today</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CREDIT CARDS SECTION ===== -->
+  <section class="cards-section section-pad bg-light">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Credit Cards</div>
+        <h2 class="section-title">Smart Cards Designed for You</h2>
+        <p class="section-sub">Compare and choose from top bank credit cards — travel, cashback, rewards and more.</p>
+      </div>
+      <div class="cards-tabs">
+        <button class="tab-btn active" data-tab="travel">Travel</button>
+        <button class="tab-btn" data-tab="cashback">Cashback</button>
+        <button class="tab-btn" data-tab="rewards">Rewards</button>
+        <button class="tab-btn" data-tab="premium">Premium</button>
+      </div>
+      <div class="cards-carousel" id="cardsCarousel">
+        <div class="credit-card-item">
+          <div class="cc-visual cc-purple">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">HDFC Bank</div>
+            <div class="cc-num">•••• •••• •••• 4521</div>
+            <div class="cc-name">DINERS CLUB</div>
+          </div>
+          <div class="cc-info">
+            <h4>HDFC Diners Club Black</h4>
+            <ul>
+              <li>✈️ 10x rewards on travel</li>
+              <li>🍽️ Complimentary dining benefits</li>
+              <li>🌍 Global airport lounge access</li>
+            </ul>
+            <a href="credit-cards.html" class="btn-primary">Apply Now</a>
+          </div>
+        </div>
+        <div class="credit-card-item">
+          <div class="cc-visual cc-gold">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">SBI Card</div>
+            <div class="cc-num">•••• •••• •••• 7890</div>
+            <div class="cc-name">ELITE</div>
+          </div>
+          <div class="cc-info">
+            <h4>SBI Card ELITE</h4>
+            <ul>
+              <li>🛍️ 5x rewards on shopping</li>
+              <li>✈️ Complimentary air tickets</li>
+              <li>🎬 Free movie tickets every month</li>
+            </ul>
+            <a href="credit-cards.html" class="btn-primary">Apply Now</a>
+          </div>
+        </div>
+        <div class="credit-card-item">
+          <div class="cc-visual cc-blue">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">Axis Bank</div>
+            <div class="cc-num">•••• •••• •••• 3312</div>
+            <div class="cc-name">MAGNUS</div>
+          </div>
+          <div class="cc-info">
+            <h4>Axis Magnus Credit Card</h4>
+            <ul>
+              <li>⚡ 12 Edge Rewards per ₹200</li>
+              <li>🏨 Premium hotel memberships</li>
+              <li>💎 Unlimited lounge access</li>
+            </ul>
+            <a href="credit-cards.html" class="btn-primary">Apply Now</a>
+          </div>
+        </div>
+        <div class="credit-card-item">
+          <div class="cc-visual cc-green">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">ICICI Bank</div>
+            <div class="cc-num">•••• •••• •••• 6671</div>
+            <div class="cc-name">AMAZON PAY</div>
+          </div>
+          <div class="cc-info">
+            <h4>ICICI Amazon Pay Card</h4>
+            <ul>
+              <li>🛒 5% back on Amazon</li>
+              <li>⛽ 2% back on fuel</li>
+              <li>🎁 1% back everywhere else</li>
+            </ul>
+            <a href="credit-cards.html" class="btn-primary">Apply Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevCard">←</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+        <button class="carousel-btn" id="nextCard">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EMI CALCULATOR ===== -->
+  <section class="calculator-section section-pad" id="calculator">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Financial Calculators</div>
+        <h2 class="section-title">Plan Your Finances</h2>
+        <p class="section-sub">Use our smart calculators to estimate your EMI, check eligibility, and plan repayments.</p>
+      </div>
+      <div class="calc-wrapper">
+        <div class="calc-tabs">
+          <button class="calc-tab active" data-calc="emi">EMI Calculator</button>
+          <button class="calc-tab" data-calc="eligibility">Eligibility</button>
+          <button class="calc-tab" data-calc="sip">SIP Calculator</button>
+          <button class="calc-tab" data-calc="fd">FD Calculator</button>
+        </div>
+        <div class="calc-body">
+          <!-- EMI Calculator -->
+          <div class="calc-panel active" id="calc-emi">
+            <div class="calc-inputs">
+              <div class="input-group">
+                <label>Loan Amount (₹)</label>
+                <div class="range-with-val">
+                  <input type="range" id="emiAmount" min="50000" max="10000000" step="50000" value="500000" />
+                  <span class="range-val" id="emiAmountVal">₹5,00,000</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Interest Rate (% p.a.)</label>
+                <div class="range-with-val">
+                  <input type="range" id="emiRate" min="5" max="30" step="0.25" value="10.99" />
+                  <span class="range-val" id="emiRateVal">10.99%</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Loan Tenure (Years)</label>
+                <div class="range-with-val">
+                  <input type="range" id="emiTenure" min="1" max="30" step="1" value="5" />
+                  <span class="range-val" id="emiTenureVal">5 yrs</span>
+                </div>
+              </div>
+            </div>
+            <div class="calc-result">
+              <div class="result-ring-wrapper">
+                <canvas id="emiDonut" width="200" height="200"></canvas>
+                <div class="result-ring-center">
+                  <span class="result-label">Monthly EMI</span>
+                  <span class="result-emi" id="emiResult">₹0</span>
+                </div>
+              </div>
+              <div class="result-breakdown">
+                <div class="rb-item principal">
+                  <span class="rb-dot"></span>
+                  <div><span>Principal Amount</span><strong id="emiPrincipal">₹0</strong></div>
+                </div>
+                <div class="rb-item interest">
+                  <span class="rb-dot"></span>
+                  <div><span>Total Interest</span><strong id="emiInterest">₹0</strong></div>
+                </div>
+                <div class="rb-item total">
+                  <span class="rb-dot"></span>
+                  <div><span>Total Payment</span><strong id="emiTotal">₹0</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Eligibility Calculator -->
+          <div class="calc-panel" id="calc-eligibility">
+            <div class="calc-inputs">
+              <div class="input-group">
+                <label>Monthly Income (₹)</label>
+                <div class="range-with-val">
+                  <input type="range" id="elIncome" min="10000" max="500000" step="5000" value="50000" />
+                  <span class="range-val" id="elIncomeVal">₹50,000</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Monthly Obligations (₹)</label>
+                <div class="range-with-val">
+                  <input type="range" id="elObligation" min="0" max="100000" step="1000" value="10000" />
+                  <span class="range-val" id="elObligationVal">₹10,000</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Loan Tenure (Years)</label>
+                <div class="range-with-val">
+                  <input type="range" id="elTenure" min="1" max="30" step="1" value="5" />
+                  <span class="range-val" id="elTenureVal">5 yrs</span>
+                </div>
+              </div>
+            </div>
+            <div class="calc-result eligibility-result">
+              <div class="el-result-card">
+                <div class="el-icon">💡</div>
+                <div class="el-label">Maximum Eligible Loan</div>
+                <div class="el-amount" id="elResult">₹0</div>
+                <p class="el-note">Based on 50% FOIR (Fixed Obligations to Income Ratio)</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIP Calculator -->
+          <div class="calc-panel" id="calc-sip">
+            <div class="calc-inputs">
+              <div class="input-group">
+                <label>Monthly Investment (₹)</label>
+                <div class="range-with-val">
+                  <input type="range" id="sipAmount" min="500" max="100000" step="500" value="5000" />
+                  <span class="range-val" id="sipAmountVal">₹5,000</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Expected Return (% p.a.)</label>
+                <div class="range-with-val">
+                  <input type="range" id="sipRate" min="1" max="30" step="0.5" value="12" />
+                  <span class="range-val" id="sipRateVal">12%</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Investment Period (Years)</label>
+                <div class="range-with-val">
+                  <input type="range" id="sipTenure" min="1" max="40" step="1" value="10" />
+                  <span class="range-val" id="sipTenureVal">10 yrs</span>
+                </div>
+              </div>
+            </div>
+            <div class="calc-result">
+              <div class="result-ring-wrapper">
+                <canvas id="sipDonut" width="200" height="200"></canvas>
+                <div class="result-ring-center">
+                  <span class="result-label">Total Value</span>
+                  <span class="result-emi" id="sipResult">₹0</span>
+                </div>
+              </div>
+              <div class="result-breakdown">
+                <div class="rb-item principal">
+                  <span class="rb-dot"></span>
+                  <div><span>Total Invested</span><strong id="sipInvested">₹0</strong></div>
+                </div>
+                <div class="rb-item interest">
+                  <span class="rb-dot"></span>
+                  <div><span>Estimated Returns</span><strong id="sipReturns">₹0</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FD Calculator -->
+          <div class="calc-panel" id="calc-fd">
+            <div class="calc-inputs">
+              <div class="input-group">
+                <label>Deposit Amount (₹)</label>
+                <div class="range-with-val">
+                  <input type="range" id="fdAmount" min="10000" max="5000000" step="10000" value="100000" />
+                  <span class="range-val" id="fdAmountVal">₹1,00,000</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Interest Rate (% p.a.)</label>
+                <div class="range-with-val">
+                  <input type="range" id="fdRate" min="3" max="10" step="0.1" value="7.5" />
+                  <span class="range-val" id="fdRateVal">7.5%</span>
+                </div>
+              </div>
+              <div class="input-group">
+                <label>Duration (Years)</label>
+                <div class="range-with-val">
+                  <input type="range" id="fdTenure" min="1" max="10" step="1" value="3" />
+                  <span class="range-val" id="fdTenureVal">3 yrs</span>
+                </div>
+              </div>
+            </div>
+            <div class="calc-result">
+              <div class="result-ring-wrapper">
+                <canvas id="fdDonut" width="200" height="200"></canvas>
+                <div class="result-ring-center">
+                  <span class="result-label">Maturity Value</span>
+                  <span class="result-emi" id="fdResult">₹0</span>
+                </div>
+              </div>
+              <div class="result-breakdown">
+                <div class="rb-item principal">
+                  <span class="rb-dot"></span>
+                  <div><span>Principal Amount</span><strong id="fdPrincipal">₹0</strong></div>
+                </div>
+                <div class="rb-item interest">
+                  <span class="rb-dot"></span>
+                  <div><span>Interest Earned</span><strong id="fdInterest">₹0</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BANKING PARTNERS ===== -->
+  <section class="partners-section section-pad bg-light">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Our Network</div>
+        <h2 class="section-title">100+ Banking Partners</h2>
+        <p class="section-sub">We collaborate with India's leading banks and NBFCs to bring you the best offers.</p>
+      </div>
+      <div class="partners-ticker-wrap">
+        <div class="partners-ticker" id="partnersTicker">
+          <div class="partner-logo">SBI</div>
+          <div class="partner-logo">HDFC</div>
+          <div class="partner-logo">ICICI</div>
+          <div class="partner-logo">Axis Bank</div>
+          <div class="partner-logo">Kotak</div>
+          <div class="partner-logo">PNB</div>
+          <div class="partner-logo">BOB</div>
+          <div class="partner-logo">Canara</div>
+          <div class="partner-logo">IndusInd</div>
+          <div class="partner-logo">Yes Bank</div>
+          <div class="partner-logo">IDFC First</div>
+          <div class="partner-logo">Tata Capital</div>
+          <div class="partner-logo">Bajaj Fin</div>
+          <div class="partner-logo">L&T Finance</div>
+          <div class="partner-logo">LIC HFL</div>
+          <div class="partner-logo">HSBC</div>
+          <!-- duplicate for seamless loop -->
+          <div class="partner-logo">SBI</div>
+          <div class="partner-logo">HDFC</div>
+          <div class="partner-logo">ICICI</div>
+          <div class="partner-logo">Axis Bank</div>
+          <div class="partner-logo">Kotak</div>
+          <div class="partner-logo">PNB</div>
+          <div class="partner-logo">BOB</div>
+          <div class="partner-logo">Canara</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq-section section-pad">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">FAQs</div>
+        <h2 class="section-title">Answers to Your Questions</h2>
+        <p class="section-sub">Everything you need to know about loans, credit, and our platform.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What is MRABILITY Finance?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>MRABILITY Finance is a fintech loan aggregator that connects you with 95+ banks and NBFCs across India. We help you compare, choose, and apply for the best loan offers — all digitally, with expert guidance at every step.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How does MRABILITY Finance work?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Simply fill in your loan requirements, and our AI engine matches you with the best lenders based on 90+ criteria. You can then compare offers, apply digitally, and get disbursement within 24–48 hours — no branch visit needed.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is my data safe with MRABILITY Finance?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Yes. MRABILITY Finance uses bank-grade encryption and follows strict data privacy protocols. We never share your data without explicit consent, and we follow all RBI and DPDP Act guidelines for data protection.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Does checking credit score affect my CIBIL?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>No! Checking your own credit score is a "soft inquiry" and does not affect your CIBIL score at all. You can check it as many times as you want without any negative impact.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What documents are needed for a loan?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Typically: Aadhaar card, PAN card, last 3 months' bank statements, and latest salary slips (for salaried) or ITR (for self-employed). Our platform guides you through exact requirements for each lender.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How fast can I get a loan disbursed?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <p>Personal loans can be disbursed in as little as 24 hours after document verification. Home loans typically take 48–72 hours post approval. Business loans vary by lender but our team expedites the process.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials section-pad bg-light">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Customer Stories</div>
+        <h2 class="section-title">Loved by Thousands</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Got my home loan approved in just 2 days! The process was completely paperless and the team was super helpful throughout."</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#6366f1">R</div>
+            <div><strong>Rajesh Kumar</strong><span>Home Loan, Mumbai</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Compared 10+ banks in 5 minutes and got the best interest rate. My personal loan was disbursed within 24 hours. Amazing!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#10b981">P</div>
+            <div><strong>Priya Sharma</strong><span>Personal Loan, Bangalore</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The credit score check is genuinely free and gave me detailed insights. Used the tips to improve my score by 80 points!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:#f59e0b">A</div>
+            <div><strong>Amit Patel</strong><span>Credit Score, Delhi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <h2>Ready to Make Smarter Financial Decisions?</h2>
+      <p>Join 5.8 Lakh+ customers who trust MRABILITY Finance for their financial needs.</p>
+      <div class="cta-actions">
+        <a href="personal-loan.html" class="btn-white btn-lg">Apply for a Loan</a>
+        <a href="credit-score.html" class="btn-outline-white btn-lg">Check Credit Score</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">◈</span>
+          <span class="logo-text">MRABILITY <span class="accent">Finance</span></span>
+        </a>
+        <p>India's fastest growing fintech platform for loans, credit cards, and financial planning.</p>
+        <div class="social-links">
+          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">𝕏</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Loans</h4>
+        <ul>
+          <li><a href="personal-loan.html">Personal Loan</a></li>
+          <li><a href="home-loan.html">Home Loan</a></li>
+          <li><a href="business-loan.html">Business Loan</a></li>
+          <li><a href="car-loan.html">Car Loan</a></li>
+          <li><a href="lap.html">Loan Against Property</a></li>
+          <li><a href="used-car-loan.html">Used Car Loan</a></li>
+          <li><a href="used-car-loan.html">Two Wheeler Loan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="calculators.html">EMI Calculator</a></li>
+          <li><a href="calculators.html">Eligibility Calculator</a></li>
+          <li><a href="calculators.html">SIP Calculator</a></li>
+          <li><a href="calculators.html">FD Calculator</a></li>
+          <li><a href="calculators.html">PPF Calculator</a></li>
+          <li><a href="calculators.html">IFSC Code Finder</a></li>
+          <li><a href="calculators.html">Currency Converter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Credit</h4>
+        <ul>
+          <li><a href="credit-score.html">Free Credit Score</a></li>
+          <li><a href="credit-cards.html">Credit Cards</a></li>
+          <li><a href="credit-score.html">Improve CIBIL Score</a></li>
+          <li><a href="credit-score.html">CIBIL by PAN Card</a></li>
+        </ul>
+        <h4 style="margin-top:1.5rem">Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="about.html">Careers</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>© 2026 MRABILITY Finance Pvt Ltd. All rights reserved. | NBFC Registration No. FNXX-2015</p>
+        <p class="disclaimer">*Interest rates and loan amounts are indicative. Final rates depend on your credit profile and lender policies.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- ===== LOGIN / REGISTER MODAL ===== -->
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true" aria-label="Login">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+
+      <!-- Modal Tabs -->
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-modal-tab="login">Login</button>
+        <button class="modal-tab" data-modal-tab="register">Register</button>
+      </div>
+
+      <!-- LOGIN PANEL -->
+      <div class="modal-panel active" id="modal-login">
+        <div class="modal-header">
+          <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+          <h2>Welcome Back!</h2>
+          <p>Login to access your loan dashboard</p>
+        </div>
+        <form class="modal-form" id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label>Mobile Number / Email</label>
+            <input type="text" id="loginId" placeholder="Enter mobile or email" required autocomplete="username" />
+            <span class="field-err" id="loginIdErr"></span>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="loginPass" placeholder="Enter password" required autocomplete="current-password" />
+              <button type="button" class="toggle-pass" onclick="togglePassword('loginPass', this)">👁</button>
+            </div>
+            <span class="field-err" id="loginPassErr"></span>
+          </div>
+          <div class="modal-row">
+            <label class="check-label"><input type="checkbox" /> Remember me</label>
+            <a href="javascript:void(0)" class="forgot-link" onclick="showForgot();">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn-primary modal-submit" id="loginBtn">Login to MRABILITY Finance</button>
+          <div class="modal-divider"><span>or continue with</span></div>
+          <div class="social-login-btns">
+            <!-- Google Sign-In rendered by GIS SDK into this div -->
+            <div id="googleSignInBtn" style="display:flex;justify-content:center;min-height:44px"></div>
+            <button type="button" class="social-btn fb-btn" onclick="socialLogin('Facebook')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2" style="flex-shrink:0"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.514c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+              Continue with Facebook
+            </button>
+          </div>
+          <p class="modal-switch">Don't have an account? <a href="javascript:void(0)" onclick="switchModalTab('register');">Register Free</a></p>
+        </form>
+      </div>
+
+      <!-- REGISTER PANEL -->
+      <div class="modal-panel" id="modal-register">
+        <div class="modal-header">
+          <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+          <h2>Create Account</h2>
+          <p>Join 5.8 Lakh+ smart borrowers</p>
+        </div>
+        <form class="modal-form" id="registerForm" onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="regName" placeholder="Enter your full name" required />
+            <span class="field-err" id="regNameErr"></span>
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="regMobile" placeholder="+91 00000 00000" maxlength="13" required />
+            <span class="field-err" id="regMobileErr"></span>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="regEmail" placeholder="you@example.com" required />
+            <span class="field-err" id="regEmailErr"></span>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="regPass" placeholder="Min 8 characters" required />
+              <button type="button" class="toggle-pass" onclick="togglePassword('regPass', this)">👁</button>
+            </div>
+            <div class="pass-strength" id="passStrength">
+              <div class="pass-bar"><div class="pass-fill" id="passFill"></div></div>
+              <span id="passLabel">Strength</span>
+            </div>
+            <span class="field-err" id="regPassErr"></span>
+          </div>
+          <div class="form-group">
+            <label class="check-label" style="align-items:flex-start;gap:.5rem">
+              <input type="checkbox" id="regConsent" required style="margin-top:3px" />
+              <span style="font-size:.775rem;font-weight:400;color:var(--text-mid)">I agree to the <a href="terms.html" style="color:var(--primary)">Terms &amp; Conditions</a> and <a href="privacy.html" style="color:var(--primary)">Privacy Policy</a></span>
+            </label>
+          </div>
+          <button type="submit" class="btn-primary modal-submit" id="registerBtn">Create My Account</button>
+          <p class="modal-switch">Already have an account? <a href="javascript:void(0)" onclick="switchModalTab('login');">Login</a></p>
+        </form>
+      </div>
+
+      <!-- STEP 1: FORGOT PASSWORD — enter mobile/email -->
+      <div class="modal-panel" id="modal-forgot">
+        <div class="modal-header">
+          <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+          <h2>Reset Password</h2>
+          <p>Enter your registered mobile number or email</p>
+        </div>
+        <form class="modal-form" id="forgotForm" onsubmit="handleForgot(event)">
+          <div class="form-group">
+            <label>Mobile Number / Email</label>
+            <input type="text" id="forgotId" placeholder="e.g. 9876543210 or you@email.com" required />
+          </div>
+          <span class="field-err" id="forgotErr" style="display:block;margin-bottom:.5rem"></span>
+          <button type="submit" class="btn-primary modal-submit">Send OTP</button>
+          <p class="modal-switch"><a href="javascript:void(0)" onclick="switchModalTab('login');">← Back to Login</a></p>
+        </form>
+      </div>
+
+      <!-- STEP 2: OTP VERIFY -->
+      <div class="modal-panel" id="modal-otp">
+        <div class="modal-header">
+          <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+          <h2>Enter OTP</h2>
+          <p id="otpSentMsg" style="color:var(--success,#22c55e);font-weight:500">OTP sent to your mobile/email</p>
+        </div>
+        <form class="modal-form" onsubmit="handleVerifyOtp(event)">
+          <div class="form-group">
+            <label>6-Digit OTP</label>
+            <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6"
+                   inputmode="numeric" pattern="[0-9]{6}" required
+                   style="letter-spacing:8px;font-size:1.4rem;text-align:center;font-weight:600" />
+          </div>
+          <span class="field-err" id="otpErr" style="display:block;margin-bottom:.5rem"></span>
+          <button type="submit" class="btn-primary modal-submit">Verify OTP</button>
+          <p class="modal-switch" style="text-align:center">
+            Didn't get it?
+            <a href="javascript:void(0)" onclick="switchModalTab('forgot');">Resend OTP</a>
+            &nbsp;|&nbsp;
+            <a href="javascript:void(0)" onclick="switchModalTab('login');">← Login</a>
+          </p>
+        </form>
+      </div>
+
+      <!-- STEP 3: SET NEW PASSWORD -->
+      <div class="modal-panel" id="modal-newpass">
+        <div class="modal-header">
+          <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+          <h2>Set New Password</h2>
+          <p>Choose a strong password for your account</p>
+        </div>
+        <form class="modal-form" onsubmit="handleResetPassword(event)">
+          <div class="form-group">
+            <label>New Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="newPassInput" placeholder="Minimum 8 characters" required minlength="8" />
+              <button type="button" class="toggle-pass" onclick="togglePassword('newPassInput',this)">👁</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="newPassConfirm" placeholder="Re-enter password" required minlength="8" />
+              <button type="button" class="toggle-pass" onclick="togglePassword('newPassConfirm',this)">👁</button>
+            </div>
+          </div>
+          <span class="field-err" id="newPassErr" style="display:block;margin-bottom:.5rem"></span>
+          <button type="submit" class="btn-primary modal-submit">Reset Password</button>
+        </form>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="modal-panel" id="modal-success">
+        <div style="text-align:center;padding:2rem 1rem">
+          <div style="font-size:4rem;margin-bottom:1rem">🎉</div>
+          <h2 style="margin-bottom:.5rem" id="successTitle">Welcome!</h2>
+          <p style="color:var(--text-mid);margin-bottom:2rem" id="successMsg">You're logged in successfully.</p>
+          <button class="btn-primary" id="successAction" onclick="closeModal()" style="width:100%;justify-content:center">Continue</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+  <!-- Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    // Called by Google GIS SDK once loaded — renders the button
+    function initGoogleSignIn() {
+      const clientId = window._gClientId || '';
+      if (!clientId) return; // no client ID configured, button stays hidden
+      if (typeof google === 'undefined') return;
+      google.accounts.id.initialize({
+        client_id: clientId,
+        callback: handleGoogleCredential,
+        auto_select: false,
+        cancel_on_tap_outside: true,
+      });
+      renderGoogleButton();
+    }
+
+    function renderGoogleButton() {
+      const container = document.getElementById('googleSignInBtn');
+      if (!container || typeof google === 'undefined') return;
+      container.innerHTML = ''; // clear placeholder
+      google.accounts.id.renderButton(container, {
+        theme: 'outline',
+        size: 'large',
+        width: 340,
+        text: 'continue_with',
+        shape: 'pill',
+        logo_alignment: 'left',
+      });
+    }
+
+    async function handleGoogleCredential(response) {
+      const credential = response.credential;
+      if (!credential) return;
+
+      // Show loading state in the modal
+      showGoogleLoading(true);
+
+      try {
+        const res  = await fetch('http://localhost:8080/api/auth/google/token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ credential })
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          showGoogleLoading(false);
+          // show error inside modal
+          const err = document.createElement('div');
+          err.style.cssText = 'color:#dc2626;font-size:.8rem;text-align:center;margin-top:.5rem';
+          err.textContent = data.error || 'Google sign-in failed. Please try again.';
+          const btns = document.querySelector('.social-login-btns');
+          if (btns) { btns.querySelectorAll('.google-err').forEach(e=>e.remove()); err.className='google-err'; btns.appendChild(err); }
+          return;
+        }
+
+        // Success — store session and update UI
+        if (typeof FinNova !== 'undefined') {
+          FinNova.setSession(data.token, data.name, data.role, data.id);
+        }
+        if (typeof closeModal === 'function') closeModal();
+        if (typeof updateNavForLoggedIn === 'function') updateNavForLoggedIn(data.name, data.role);
+        if (typeof showToast === 'function') showToast(`Welcome, ${data.name.split(' ')[0]}! Signed in with Google ✓`, 'success');
+
+      } catch (e) {
+        showGoogleLoading(false);
+        if (typeof showToast === 'function') showToast('Server unreachable. Run ./start.sh first.', 'error');
+      }
+    }
+
+    function showGoogleLoading(on) {
+      const btn = document.getElementById('googleSignInBtn');
+      if (!btn) return;
+      if (on) {
+        btn.innerHTML = '<div style="display:flex;align-items:center;gap:.6rem;padding:.6rem 1.2rem;border:1.5px solid #e2e8f0;border-radius:50px;font-size:.875rem;color:#475569"><svg width="18" height="18" viewBox="0 0 24 24" style="animation:spin .7s linear infinite"><circle cx="12" cy="12" r="10" fill="none" stroke="#4f46e5" stroke-width="3" stroke-dasharray="60" stroke-dashoffset="15"/></svg> Signing in with Google…</div><style>@keyframes spin{to{transform:rotate(360deg)}}</style>';
+      } else {
+        renderGoogleButton();
+      }
+    }
+
+    // Load the client ID from server and init
+    fetch('http://localhost:8080/api/auth/google/check')
+      .then(r => r.json())
+      .then(data => {
+        if (data.client_id) {
+          window._gClientId = data.client_id;
+          // If SDK already loaded, init now; otherwise SDK onload will call initGoogleSignIn
+          if (typeof google !== 'undefined' && google.accounts) {
+            initGoogleSignIn();
+          }
+        } else {
+          // No client ID — show a "Setup Google Login" prompt in the button area
+          showGoogleSetupPrompt();
+        }
+      })
+      .catch(() => {
+        // Server down — show server-down notice
+        showGoogleSetupPrompt('server_down');
+      });
+
+    function showGoogleSetupPrompt(reason) {
+      const container = document.getElementById('googleSignInBtn');
+      if (!container) return;
+
+      if (reason === 'server_down') {
+        container.innerHTML = `
+          <div style="display:flex;align-items:center;gap:.6rem;padding:.55rem 1rem;background:#fef2f2;border:1.5px solid #fca5a5;border-radius:50px;font-size:.78rem;color:#dc2626;cursor:default;width:100%;justify-content:center">
+            ⚠️ Server offline — run <code style="background:#fee2e2;padding:.1rem .4rem;border-radius:4px;font-size:.72rem">./start.sh</code>
+          </div>`;
+        return;
+      }
+
+      // Not configured — show setup button that opens instructions
+      container.innerHTML = `
+        <button onclick="showGoogleConfigModal()" style="
+          display:flex;align-items:center;justify-content:center;gap:.6rem;
+          width:100%;padding:.65rem 1.25rem;
+          background:#fff;border:1.5px solid #dadce0;border-radius:50px;
+          font-size:.875rem;font-weight:600;color:#3c4043;cursor:pointer;
+          transition:.2s;
+        "
+        onmouseover="this.style.background='#f8f9fa'"
+        onmouseout="this.style.background='#fff'">
+          <svg width="18" height="18" viewBox="0 0 48 48">
+            <path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.8l6-6C34.4 3.2 29.5 1 24 1 14.8 1 7 6.7 3.8 14.7l7 5.5C12.5 13.6 17.8 9.5 24 9.5z"/>
+            <path fill="#34A853" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.2 5.2-4.6 6.8l7 5.5c4.1-3.8 6.3-9.4 6.3-16.3z"/>
+            <path fill="#4A90D9" d="M10.8 28.3A14.8 14.8 0 0 1 9.5 24c0-1.5.3-2.9.7-4.3l-7-5.5A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l8.2-6.4z"/>
+            <path fill="#FBBC05" d="M24 47c5.5 0 10.1-1.8 13.5-4.9l-7-5.5c-1.9 1.3-4.3 2-6.5 2-6.2 0-11.5-4.1-13.2-9.8l-8.2 6.4C7 41.3 14.8 47 24 47z"/>
+          </svg>
+          Continue with Google
+        </button>`;
+    }
+
+    function showGoogleConfigModal() {
+      // Remove any existing
+      document.getElementById('googleSetupOverlay')?.remove();
+
+      const overlay = document.createElement('div');
+      overlay.id = 'googleSetupOverlay';
+      overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(4px)';
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:20px;padding:2rem;max-width:480px;width:100%;position:relative;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+          <button onclick="document.getElementById('googleSetupOverlay').remove()" style="position:absolute;top:1rem;right:1rem;width:28px;height:28px;border-radius:50%;border:1.5px solid #e2e8f0;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.8rem">✕</button>
+
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem">
+            <svg width="32" height="32" viewBox="0 0 48 48">
+              <path fill="#EA4335" d="M24 9.5c3.1 0 5.8 1.1 8 2.8l6-6C34.4 3.2 29.5 1 24 1 14.8 1 7 6.7 3.8 14.7l7 5.5C12.5 13.6 17.8 9.5 24 9.5z"/>
+              <path fill="#34A853" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.4c-.5 2.8-2.2 5.2-4.6 6.8l7 5.5c4.1-3.8 6.3-9.4 6.3-16.3z"/>
+              <path fill="#4A90D9" d="M10.8 28.3A14.8 14.8 0 0 1 9.5 24c0-1.5.3-2.9.7-4.3l-7-5.5A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l8.2-6.4z"/>
+              <path fill="#FBBC05" d="M24 47c5.5 0 10.1-1.8 13.5-4.9l-7-5.5c-1.9 1.3-4.3 2-6.5 2-6.2 0-11.5-4.1-13.2-9.8l-8.2 6.4C7 41.3 14.8 47 24 47z"/>
+            </svg>
+            <div>
+              <h3 style="font-size:1.05rem;font-weight:800;margin:0">Setup Google Login</h3>
+              <p style="font-size:.8rem;color:#64748b;margin:0">One-time setup — takes ~3 minutes</p>
+            </div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:.875rem">
+
+            <div style="background:#f8fafc;border-radius:12px;padding:1rem">
+              <div style="font-size:.8rem;font-weight:800;color:#4f46e5;margin-bottom:.625rem">Step 1 — Create Google Cloud Project</div>
+              <div style="font-size:.82rem;color:#334155;line-height:1.7">
+                1. Go to <a href="https://console.cloud.google.com" target="_blank" style="color:#4f46e5;font-weight:600">console.cloud.google.com</a><br/>
+                2. Click <strong>Select a project → New Project</strong><br/>
+                3. Name it <strong>MRABILITY Finance</strong> and click Create
+              </div>
+            </div>
+
+            <div style="background:#f8fafc;border-radius:12px;padding:1rem">
+              <div style="font-size:.8rem;font-weight:800;color:#4f46e5;margin-bottom:.625rem">Step 2 — Create OAuth Credentials</div>
+              <div style="font-size:.82rem;color:#334155;line-height:1.7">
+                1. Go to <strong>APIs &amp; Services → Credentials</strong><br/>
+                2. Click <strong>+ Create Credentials → OAuth 2.0 Client IDs</strong><br/>
+                3. Application type: <strong>Web application</strong><br/>
+                4. Authorised JavaScript origins: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px">http://localhost:8080</code><br/>
+                5. Authorised redirect URIs: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px">http://localhost:8080/api/auth/google/callback</code>
+              </div>
+            </div>
+
+            <div style="background:#f8fafc;border-radius:12px;padding:1rem">
+              <div style="font-size:.8rem;font-weight:800;color:#4f46e5;margin-bottom:.625rem">Step 3 — Start server with credentials</div>
+              <div style="font-size:.82rem;color:#334155;line-height:1.7;margin-bottom:.75rem">
+                Stop the current server and restart it like this:
+              </div>
+              <div style="background:#0f172a;border-radius:8px;padding:.875rem 1rem;font-family:monospace;font-size:.78rem;color:#a5f3fc;line-height:1.8;word-break:break-all">
+                GOOGLE_CLIENT_ID=<span style="color:#fde68a">your-client-id.apps.googleusercontent.com</span><br/>
+                GOOGLE_CLIENT_SECRET=<span style="color:#fde68a">your-client-secret</span><br/>
+                ./start.sh
+              </div>
+            </div>
+
+            <div style="background:#ecfdf5;border:1.5px solid #6ee7b7;border-radius:12px;padding:.875rem 1rem">
+              <div style="font-size:.8rem;font-weight:800;color:#059669;margin-bottom:.35rem">✅ After setup</div>
+              <div style="font-size:.8rem;color:#065f46;line-height:1.6">The Google button will automatically activate. Users can sign in with their Google account without registering separately.</div>
+            </div>
+          </div>
+
+          <button onclick="document.getElementById('googleSetupOverlay').remove()" style="
+            width:100%;margin-top:1.25rem;padding:.875rem;
+            background:linear-gradient(135deg,#4f46e5,#3730a3);color:#fff;
+            border-radius:50px;font-weight:700;font-size:.9rem;cursor:pointer;border:none
+          ">Got it — use Email Login for now</button>
+        </div>`;
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+    }
+
+    // Called by Google SDK when it finishes loading
+    window.onGoogleLibraryLoad = initGoogleSignIn;
+  </script>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Applications – MRABILITY Finance</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    .page-hero{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);padding:6rem 2rem 3rem;color:#fff;text-align:center}
+    .page-hero h1{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;margin-bottom:.5rem}
+    .page-hero p{font-size:1rem;opacity:.85}
+
+    .apps-wrapper{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem}
+
+    .filters-bar{display:flex;gap:.625rem;margin-bottom:1.75rem;flex-wrap:wrap;align-items:center}
+    .filter-chip{padding:.45rem 1.1rem;border-radius:50px;border:1.5px solid var(--border);background:#fff;font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s;color:var(--text-mid)}
+    .filter-chip:hover,.filter-chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .apps-count{font-size:.8rem;color:var(--text-mid);margin-left:auto}
+
+    .app-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+    .app-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08);transform:translateY(-2px)}
+    .app-left{display:flex;align-items:flex-start;gap:.875rem;flex:1;min-width:0}
+    .app-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+    .app-icon.personal{background:#eff6ff} .app-icon.home{background:#ecfdf5}
+    .app-icon.business{background:#fff7ed} .app-icon.car{background:#f5f3ff}
+    .app-icon.lap{background:#fef2f2}      .app-icon.used_car{background:#f0fdf4}
+    .app-name{font-size:.975rem;font-weight:700;margin-bottom:.2rem}
+    .app-ref{font-size:.72rem;color:var(--text-light);font-family:monospace}
+    .app-meta{display:flex;flex-wrap:wrap;gap:.35rem 1.25rem;margin-top:.5rem}
+    .app-meta-item{font-size:.8rem;color:var(--text-mid);display:flex;align-items:center;gap:.3rem}
+    .app-meta-item strong{color:var(--text-dark);font-weight:600}
+    .app-date{font-size:.72rem;color:var(--text-light);margin-top:.5rem}
+
+    .status-badge{padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:700;white-space:nowrap;flex-shrink:0}
+    .status-submitted{background:#eff6ff;color:#2563eb}
+    .status-processing{background:#fff7ed;color:#ea580c}
+    .status-approved{background:#ecfdf5;color:#059669}
+    .status-rejected{background:#fef2f2;color:#dc2626}
+
+    .empty-state{text-align:center;padding:4.5rem 2rem}
+    .empty-state .ei{font-size:3.5rem;margin-bottom:1rem}
+    .empty-state h3{font-size:1.2rem;font-weight:700;margin-bottom:.5rem}
+    .empty-state p{font-size:.9rem;color:var(--text-mid);margin-bottom:1.5rem}
+
+    .loading-box{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:4rem;color:var(--text-mid);font-size:.9rem}
+    .spinner{width:36px;height:36px;border:4px solid rgba(79,70,229,.12);border-top-color:#4f46e5;border-radius:50%;animation:spin .7s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .auth-gate{text-align:center;padding:5rem 2rem;max-width:480px;margin:0 auto}
+    .auth-gate h2{font-size:1.4rem;font-weight:700;margin-bottom:.75rem}
+    .auth-gate p{color:var(--text-mid);margin-bottom:1.5rem}
+
+    @media(max-width:600px){
+      .app-card{flex-direction:column}
+      .app-meta{gap:.35rem 1rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR (matches main site exactly) ─────────────── -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-icon">◈</span>
+      <span class="logo-text">MRABILITY <span class="accent">Finance</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <div class="nav-dropdown">
+        <button class="nav-btn">Loans <span class="chevron">▾</span></button>
+        <div class="dropdown-menu">
+          <a href="personal-loan.html">Personal Loan</a>
+          <a href="home-loan.html">Home Loan</a>
+          <a href="business-loan.html">Business Loan</a>
+          <a href="car-loan.html">Car Loan</a>
+        </div>
+      </div>
+      <a href="credit-cards.html" class="nav-link">Credit Cards</a>
+      <a href="credit-score.html" class="nav-link">Credit Score</a>
+      <a href="calculators.html" class="nav-link">Calculators</a>
+    </nav>
+    <div class="nav-actions" id="navActions">
+      <button class="btn-ghost" onclick="openLoginModal()">Login</button>
+      <button class="btn-primary" onclick="openLoginModal('register')">Get Started</button>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <h1>My Loan Applications</h1>
+  <p>Track the status of all your loan applications in one place</p>
+</div>
+
+<div class="apps-wrapper" id="appsWrapper">
+  <div class="loading-box"><div class="spinner"></div>Loading your applications…</div>
+</div>
+
+<script src="app.js"></script>
+<script>
+// API is already defined in app.js — do not redeclare
+
+async function loadMyApplications() {
+  const wrapper = document.getElementById('appsWrapper');
+  const session = FinNova.getSession();
+  const token   = FinNova.getToken();
+
+  // Not logged in
+  if (!session || !session.loggedIn || !token) {
+    wrapper.innerHTML = `
+      <div class="auth-gate">
+        <div style="font-size:3rem;margin-bottom:1rem">🔒</div>
+        <h2>Login Required</h2>
+        <p>Please login to view your loan applications.</p>
+        <button class="btn-primary" onclick="openLoginModal('login')" style="padding:.875rem 2.5rem;border-radius:50px">Login to MRABILITY Finance</button>
+      </div>`;
+    return;
+  }
+
+  try {
+    const res = await fetch(`${API}/applications/my`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+
+    if (res.status === 401) {
+      // Token expired — ask to re-login
+      wrapper.innerHTML = `
+        <div class="auth-gate">
+          <div style="font-size:3rem;margin-bottom:1rem">🔑</div>
+          <h2>Session Expired</h2>
+          <p>Your session has expired. Please login again.</p>
+          <button class="btn-primary" onclick="openLoginModal('login')" style="padding:.875rem 2.5rem;border-radius:50px">Login Again</button>
+        </div>`;
+      return;
+    }
+
+    const data = await res.json();
+    // API returns a plain array
+    const apps = Array.isArray(data) ? data : (data.applications || []);
+
+    if (apps.length === 0) {
+      wrapper.innerHTML = `
+        <div class="empty-state">
+          <div class="ei">📋</div>
+          <h3>No Applications Yet</h3>
+          <p>You haven't submitted any loan applications yet.<br>Explore our loan products and apply in minutes.</p>
+          <a href="personal-loan.html" class="btn-primary" style="display:inline-block;padding:.875rem 2.5rem;border-radius:50px;text-decoration:none">Explore Loans →</a>
+        </div>`;
+      return;
+    }
+
+    const loanMeta = {
+      personal_loan: { label:'Personal Loan',         icon:'💼', cls:'personal' },
+      home_loan:     { label:'Home Loan',              icon:'🏠', cls:'home'     },
+      business_loan: { label:'Business Loan',          icon:'🏢', cls:'business' },
+      car_loan:      { label:'Car Loan',               icon:'🚗', cls:'car'      },
+      lap:           { label:'Loan Against Property',  icon:'🏗️', cls:'lap'     },
+      used_car_loan: { label:'Used Car Loan',          icon:'🚘', cls:'used_car' },
+    };
+    const statusCls = {
+      Submitted:'status-submitted', Processing:'status-processing',
+      Approved:'status-approved',   Rejected:'status-rejected'
+    };
+
+    const counts = {};
+    apps.forEach(a => { counts[a.status] = (counts[a.status]||0)+1; });
+
+    const filterHTML = `
+      <div class="filters-bar" id="filtersBar">
+        <button class="filter-chip active" onclick="filterApps('All',this)">All <span style="opacity:.6">(${apps.length})</span></button>
+        ${Object.entries(counts).map(([s,c])=>`
+          <button class="filter-chip" onclick="filterApps('${s}',this)">${s} <span style="opacity:.6">(${c})</span></button>
+        `).join('')}
+        <span class="apps-count" id="appsCount">${apps.length} application${apps.length!==1?'s':''}</span>
+      </div>`;
+
+    const cardsHTML = apps.map(a => {
+      const meta  = loanMeta[a.loan_type] || { label:(a.loan_type||'Loan').replace(/_/g,' '), icon:'📄', cls:'personal' };
+      const badge = statusCls[a.status] || 'status-submitted';
+      const date  = new Date(a.created_at).toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+      const amt   = a.loan_amount ? `<div class="app-meta-item">💰 Amount: <strong>₹${Number(a.loan_amount).toLocaleString('en-IN')}</strong></div>` : '';
+      return `
+        <div class="app-card" data-status="${a.status}">
+          <div class="app-left">
+            <div class="app-icon ${meta.cls}">${meta.icon}</div>
+            <div style="min-width:0">
+              <div class="app-name">${meta.label}</div>
+              <div class="app-ref">${a.ref_id}</div>
+              <div class="app-meta">${amt}</div>
+              <div class="app-date">📅 Applied on ${date}</div>
+            </div>
+          </div>
+          <span class="status-badge ${badge}">${a.status}</span>
+        </div>`;
+    }).join('');
+
+    wrapper.innerHTML = filterHTML + `<div id="appsList">${cardsHTML}</div>`;
+
+  } catch(e) {
+    wrapper.innerHTML = `
+      <div class="empty-state">
+        <div class="ei">⚠️</div>
+        <h3>Could Not Load Applications</h3>
+        <p>Please make sure the server is running and try again.<br><small style="color:#94a3b8">${e.message}</small></p>
+        <button class="btn-primary" onclick="loadMyApplications()" style="padding:.75rem 2rem;border-radius:50px">Retry</button>
+      </div>`;
+  }
+}
+
+function filterApps(status, btn) {
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  let visible = 0;
+  document.querySelectorAll('.app-card').forEach(c=>{
+    const show = status==='All' || c.dataset.status===status;
+    c.style.display = show ? '' : 'none';
+    if(show) visible++;
+  });
+  const el = document.getElementById('appsCount');
+  if(el) el.textContent = `${visible} application${visible!==1?'s':''}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const session = FinNova.getSession();
+  if (session && session.loggedIn) updateNavForLoggedIn(session.name, session.role);
+  loadMyApplications();
+});
+</script>
+
+<!-- LOGIN / REGISTER MODAL -->
+<div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-modal-tab="login">Login</button>
+      <button class="modal-tab" data-modal-tab="register">Register</button>
+    </div>
+
+    <!-- Login -->
+    <div class="modal-panel active" id="modal-login">
+      <div class="modal-header">
+        <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+        <h2>Welcome Back!</h2><p>Login to view your applications</p>
+      </div>
+      <form class="modal-form" onsubmit="handleLogin(event)">
+        <div class="form-group"><label>Mobile / Email</label>
+          <input type="text" id="loginId" placeholder="Mobile or email" required/>
+          <span class="field-err" id="loginIdErr"></span></div>
+        <div class="form-group"><label>Password</label>
+          <div class="input-with-icon">
+            <input type="password" id="loginPass" placeholder="Password" required/>
+            <button type="button" class="toggle-pass" onclick="togglePassword('loginPass',this)">👁</button>
+          </div>
+          <span class="field-err" id="loginPassErr"></span></div>
+        <div class="modal-row">
+          <label class="check-label"><input type="checkbox"/> Remember me</label>
+          <a href="javascript:void(0)" class="forgot-link" onclick="showForgot()">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn-primary modal-submit" id="loginBtn">Login</button>
+        <div class="modal-divider"><span>or continue with</span></div>
+        <div class="social-login-btns">
+          <button type="button" class="social-btn" onclick="socialLogin('Google')"><span class="social-icon">G</span> Google</button>
+          <button type="button" class="social-btn" onclick="socialLogin('Facebook')"><span class="social-icon fb">f</span> Facebook</button>
+        </div>
+        <p class="modal-switch">No account? <a href="javascript:void(0)" onclick="switchModalTab('register')">Register Free</a></p>
+      </form>
+    </div>
+
+    <!-- Register -->
+    <div class="modal-panel" id="modal-register">
+      <div class="modal-header">
+        <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+        <h2>Create Account</h2><p>Join 5.8 Lakh+ smart borrowers</p>
+      </div>
+      <form class="modal-form" onsubmit="handleRegister(event)">
+        <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Your full name" required/><span class="field-err" id="regNameErr"></span></div>
+        <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="+91 00000 00000" maxlength="13" required/><span class="field-err" id="regMobileErr"></span></div>
+        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="you@example.com" required/><span class="field-err" id="regEmailErr"></span></div>
+        <div class="form-group"><label>Password</label>
+          <div class="input-with-icon"><input type="password" id="regPass" placeholder="Min 8 characters" required/>
+          <button type="button" class="toggle-pass" onclick="togglePassword('regPass',this)">👁</button></div>
+          <div class="pass-strength" id="passStrength"><div class="pass-bar"><div class="pass-fill" id="passFill"></div></div><span id="passLabel">Strength</span></div>
+          <span class="field-err" id="regPassErr"></span></div>
+        <div class="form-group"><label class="check-label" style="align-items:flex-start;gap:.5rem"><input type="checkbox" id="regConsent" required style="margin-top:3px"/><span style="font-size:.775rem;font-weight:400;color:var(--text-mid)">I agree to <a href="terms.html" style="color:var(--primary)">Terms</a> &amp; <a href="privacy.html" style="color:var(--primary)">Privacy Policy</a></span></label></div>
+        <button type="submit" class="btn-primary modal-submit" id="registerBtn">Create My Account</button>
+        <p class="modal-switch">Already have an account? <a href="javascript:void(0)" onclick="switchModalTab('login')">Login</a></p>
+      </form>
+    </div>
+
+    <!-- Forgot Password Step 1 -->
+    <div class="modal-panel" id="modal-forgot">
+      <div class="modal-header">
+        <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+        <h2>Reset Password</h2><p>Enter your registered mobile or email</p>
+      </div>
+      <form class="modal-form" onsubmit="handleForgot(event)">
+        <div class="form-group"><label>Mobile / Email</label>
+          <input type="text" id="forgotId" placeholder="Enter mobile or email" required/>
+        </div>
+        <span class="field-err" id="forgotErr" style="display:block;margin-bottom:.5rem"></span>
+        <button type="submit" class="btn-primary modal-submit">Send OTP</button>
+        <p class="modal-switch"><a href="javascript:void(0)" onclick="switchModalTab('login')">← Back to Login</a></p>
+      </form>
+    </div>
+
+    <!-- OTP Verify Step 2 -->
+    <div class="modal-panel" id="modal-otp">
+      <div class="modal-header">
+        <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+        <h2>Enter OTP</h2>
+        <p id="otpSentMsg" style="color:#22c55e;font-weight:500">OTP sent to your mobile/email</p>
+      </div>
+      <form class="modal-form" onsubmit="handleVerifyOtp(event)">
+        <div class="form-group"><label>6-Digit OTP</label>
+          <input type="text" id="otpInput" placeholder="Enter OTP" maxlength="6" inputmode="numeric" required
+            style="letter-spacing:8px;font-size:1.4rem;text-align:center;font-weight:600"/>
+        </div>
+        <span class="field-err" id="otpErr" style="display:block;margin-bottom:.5rem"></span>
+        <button type="submit" class="btn-primary modal-submit">Verify OTP</button>
+        <p class="modal-switch" style="text-align:center">
+          Didn't get it? <a href="javascript:void(0)" onclick="switchModalTab('forgot')">Resend OTP</a>
+          &nbsp;|&nbsp; <a href="javascript:void(0)" onclick="switchModalTab('login')">← Login</a>
+        </p>
+      </form>
+    </div>
+
+    <!-- New Password Step 3 -->
+    <div class="modal-panel" id="modal-newpass">
+      <div class="modal-header">
+        <div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+        <h2>Set New Password</h2><p>Choose a strong password for your account</p>
+      </div>
+      <form class="modal-form" onsubmit="handleResetPassword(event)">
+        <div class="form-group"><label>New Password</label>
+          <div class="input-with-icon">
+            <input type="password" id="newPassInput" placeholder="Minimum 8 characters" required minlength="8"/>
+            <button type="button" class="toggle-pass" onclick="togglePassword('newPassInput',this)">👁</button>
+          </div>
+        </div>
+        <div class="form-group"><label>Confirm Password</label>
+          <div class="input-with-icon">
+            <input type="password" id="newPassConfirm" placeholder="Re-enter password" required minlength="8"/>
+            <button type="button" class="toggle-pass" onclick="togglePassword('newPassConfirm',this)">👁</button>
+          </div>
+        </div>
+        <span class="field-err" id="newPassErr" style="display:block;margin-bottom:.5rem"></span>
+        <button type="submit" class="btn-primary modal-submit">Reset Password</button>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div class="modal-panel" id="modal-success">
+      <div style="text-align:center;padding:2rem 1rem">
+        <div style="font-size:4rem;margin-bottom:1rem">🎉</div>
+        <h2 style="margin-bottom:.5rem" id="successTitle">Welcome!</h2>
+        <p style="color:var(--text-mid);margin-bottom:2rem" id="successMsg">You're logged in successfully.</p>
+        <button class="btn-primary" id="successAction" onclick="closeModal()" style="width:100%;justify-content:center">Continue</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

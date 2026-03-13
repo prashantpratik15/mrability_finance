@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loan Against Property – MRABILITY Finance</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">◈</span><span class="logo-text">MRABILITY <span class="accent">Finance</span></span></a>
+      <nav class="nav-links" id="navLinks">
+        <div class="nav-dropdown"><button class="nav-btn">Loans <span class="chevron">▾</span></button>
+          <div class="dropdown-menu">
+            <a href="personal-loan.html">Personal Loan</a>
+            <a href="home-loan.html">Home Loan</a>
+            <a href="business-loan.html">Business Loan</a>
+            <a href="car-loan.html">Car Loan</a>
+            <a href="lap.html">Loan Against Property</a>
+            <a href="used-car-loan.html">Used Car Loan</a>
+          </div>
+        </div>
+        <a href="credit-cards.html" class="nav-link">Credit Cards</a>
+        <a href="credit-score.html" class="nav-link">Credit Score</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-ghost" onclick="openLoginModal()">Login</button>
+        <button class="btn-primary" onclick="openLoginModal('register')">Get Started</button>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="hero-badge">Loan Against Property</div>
+      <h1>Unlock the Value of Your Property</h1>
+      <p>Get up to 70% of your property's market value as a loan at low interest rates.</p>
+      <div class="page-hero-stats">
+        <div class="ph-stat"><strong>9.25%</strong><span>Starting Rate</span></div>
+        <div class="ph-stat"><strong>70%</strong><span>LTV Ratio</span></div>
+        <div class="ph-stat"><strong>₹5 Cr</strong><span>Max Amount</span></div>
+        <div class="ph-stat"><strong>20 yrs</strong><span>Max Tenure</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="section-pad">
+    <div class="container">
+      <div class="loan-details-grid">
+        <div>
+          <div class="loan-info-card" style="margin-bottom:1.5rem">
+            <h2>Why Choose LAP with MRABILITY Finance?</h2>
+            <div class="features-list">
+              <div class="feature-item"><div class="feature-item-icon">🏠</div><div class="feature-item-text"><strong>Residential & Commercial</strong><span>Both property types accepted</span></div></div>
+              <div class="feature-item"><div class="feature-item-icon">💰</div><div class="feature-item-text"><strong>Up to ₹5 Crore</strong><span>70% of property market value</span></div></div>
+              <div class="feature-item"><div class="feature-item-icon">📉</div><div class="feature-item-text"><strong>Low Interest Rates</strong><span>Starting from 9.25% p.a.</span></div></div>
+              <div class="feature-item"><div class="feature-item-icon">📅</div><div class="feature-item-text"><strong>Long Tenure</strong><span>Repay over up to 20 years</span></div></div>
+              <div class="feature-item"><div class="feature-item-icon">🔄</div><div class="feature-item-text"><strong>Balance Transfer</strong><span>Transfer existing LAP for better rates</span></div></div>
+              <div class="feature-item"><div class="feature-item-icon">💼</div><div class="feature-item-text"><strong>Any Purpose</strong><span>Business, education, medical, or personal</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="apply-form-card">
+          <h3>Apply for LAP</h3>
+          <form onsubmit="submitLoanForm(event,'lap')">
+            <div class="form-group"><label>Full Name <span style="color:#ef4444">*</span></label><input type="text" name="full_name" placeholder="Enter your full name" required/></div>
+            <div class="form-group"><label>Mobile Number <span style="color:#ef4444">*</span></label><input type="tel" name="mobile" placeholder="+91 00000 00000" maxlength="13" required/></div>
+            <div class="form-group"><label>Date of Birth <span style="color:#ef4444">*</span></label><input type="date" name="dob" required/></div>
+            <div class="form-group"><label>Pincode <span style="color:#ef4444">*</span></label><input type="text" name="pincode" placeholder="e.g. 110001" maxlength="6" pattern="[0-9]{6}" required/></div>
+            <div class="form-group"><label>Property Type</label>
+              <select><option>Residential</option><option>Commercial</option><option>Industrial</option></select>
+            </div>
+            <div class="form-group"><label>Property Value (₹)</label><input type="number" placeholder="e.g. 5000000" required/></div>
+            <div class="form-group"><label>Loan Amount Required (₹)</label><input type="number" placeholder="e.g. 3000000" required/></div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:.875rem">Check Eligibility</button>
+            <p class="form-note">🔒 No impact on your CIBIL score.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-icon">◈</span><span class="logo-text">MRABILITY <span class="accent">Finance</span></span></a><p>India's fastest growing fintech platform.</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="personal-loan.html">Personal Loan</a></li>
+        <li><a href="home-loan.html">Home Loan</a></li><li><a href="credit-cards.html">Credit Cards</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container footer-bottom-inner"><p>© 2026 MRABILITY Finance Pvt Ltd. All rights reserved.</p></div></div>
+  </footer>
+  <button class="back-to-top" id="backToTop">↑</button>
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-tabs"><button class="modal-tab active" data-modal-tab="login">Login</button><button class="modal-tab" data-modal-tab="register">Register</button></div>
+      <div class="modal-panel active" id="modal-login"><div class="modal-header"><div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div><h2>Welcome Back!</h2><p>Login to your MRABILITY Finance account</p></div>
+        <form class="modal-form" onsubmit="handleLogin(event)"><div class="form-group"><label>Mobile / Email</label><input type="text" id="loginId" placeholder="Mobile or email" required/><span class="field-err" id="loginIdErr"></span></div><div class="form-group"><label>Password</label><div class="input-with-icon"><input type="password" id="loginPass" placeholder="Password" required/><button type="button" class="toggle-pass" onclick="togglePassword('loginPass',this)">👁</button></div><span class="field-err" id="loginPassErr"></span></div><div class="modal-row"><label class="check-label"><input type="checkbox"/> Remember me</label><a href="javascript:void(0)" class="forgot-link" onclick="showForgot();">Forgot?</a></div><button type="submit" class="btn-primary modal-submit" id="loginBtn">Login</button><p class="modal-switch">No account? <a href="javascript:void(0)" onclick="switchModalTab('register');">Register</a></p></form>
+      </div>
+      <div class="modal-panel" id="modal-register"><div class="modal-header"><div class="modal-logo">◈ <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div><h2>Create Account</h2></div>
+        <form class="modal-form" onsubmit="handleRegister(event)"><div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Full name" required/><span class="field-err" id="regNameErr"></span></div><div class="form-group"><label>Mobile</label><input type="tel" id="regMobile" placeholder="+91 00000 00000" required/><span class="field-err" id="regMobileErr"></span></div><div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="you@example.com" required/><span class="field-err" id="regEmailErr"></span></div><div class="form-group"><label>Password</label><div class="input-with-icon"><input type="password" id="regPass" placeholder="Min 8 chars" required/><button type="button" class="toggle-pass" onclick="togglePassword('regPass',this)">👁</button></div><div class="pass-strength" id="passStrength"><div class="pass-bar"><div class="pass-fill" id="passFill"></div></div><span id="passLabel">Strength</span></div><span class="field-err" id="regPassErr"></span></div><div class="form-group"><label class="check-label"><input type="checkbox" id="regConsent" required/> I agree to Terms &amp; Privacy Policy</label></div><button type="submit" class="btn-primary modal-submit" id="registerBtn">Create Account</button><p class="modal-switch"><a href="javascript:void(0)" onclick="switchModalTab('login');">Back to Login</a></p></form>
+      </div>
+      <div class="modal-panel" id="modal-forgot"><div class="modal-header"><h2>Reset Password</h2></div><form class="modal-form" onsubmit="handleForgot(event)"><div class="form-group"><label>Mobile / Email</label><input type="text" id="forgotId" placeholder="Enter mobile or email" required/></div><button type="submit" class="btn-primary modal-submit">Send OTP</button><p class="modal-switch"><a href="javascript:void(0)" onclick="switchModalTab('login');">← Back</a></p></form></div>
+      <div class="modal-panel" id="modal-success"><div style="text-align:center;padding:2rem"><div style="font-size:4rem">🎉</div><h2 id="successTitle">Welcome!</h2><p style="color:var(--text-mid);margin:1rem 0" id="successMsg">Logged in successfully.</p><button class="btn-primary" onclick="closeModal()" style="width:100%;justify-content:center">Continue</button></div></div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  <script>
+    function submitForm(e, type) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = 'Submitting...'; btn.disabled = true;
+      setTimeout(() => { btn.textContent = '✓ Application Submitted!'; btn.style.background = 'linear-gradient(135deg,#059669,#047857)'; }, 1500);
+    }
+  </script>
+</body>
+</html>
