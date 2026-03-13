@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Cards – MRABILITY Finance | Compare & Apply Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">◈</span><span class="logo-text">MRABILITY <span class="accent">Finance</span></span></a>
+      <nav class="nav-links" id="navLinks">
+        <div class="nav-dropdown">
+          <button class="nav-btn">Loans <span class="chevron">▾</span></button>
+          <div class="dropdown-menu">
+            <a href="personal-loan.html">Personal Loan</a>
+            <a href="home-loan.html">Home Loan</a>
+            <a href="business-loan.html">Business Loan</a>
+            <a href="car-loan.html">Car Loan</a>
+          </div>
+        </div>
+        <a href="credit-cards.html" class="nav-link">Credit Cards</a>
+        <a href="credit-score.html" class="nav-link">Credit Score</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-ghost" onclick="openLoginModal()">Login</button>
+        <button class="btn-primary" onclick="openLoginModal('register')">Get Started</button>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="hero-badge">Credit Cards</div>
+      <h1>Smart Credit Cards for Every Lifestyle</h1>
+      <p>Compare 50+ credit cards from 20+ top banks. Travel, cashback, rewards — we have them all.</p>
+      <div class="page-hero-stats">
+        <div class="ph-stat"><strong>50+</strong><span>Cards</span></div>
+        <div class="ph-stat"><strong>20+</strong><span>Banks</span></div>
+        <div class="ph-stat"><strong>Free</strong><span>Comparison</span></div>
+        <div class="ph-stat"><strong>Instant</strong><span>Approval</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="container">
+    <div class="cards-filter-bar">
+      <button class="filter-chip active" data-filter="all">All Cards</button>
+      <button class="filter-chip" data-filter="travel">✈️ Travel</button>
+      <button class="filter-chip" data-filter="cashback">💰 Cashback</button>
+      <button class="filter-chip" data-filter="rewards">🎁 Rewards</button>
+      <button class="filter-chip" data-filter="premium">💎 Premium</button>
+      <button class="filter-chip" data-filter="fuel">⛽ Fuel</button>
+      <button class="filter-chip" data-filter="shopping">🛍️ Shopping</button>
+    </div>
+  </div>
+
+  <!-- CARDS LISTING -->
+  <section class="section-pad">
+    <div class="container">
+      <div class="cards-listing-grid" id="cardsGrid">
+
+        <div class="card-listing-item" data-category="travel premium">
+          <div class="cli-visual cc-purple">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">HDFC Bank</div>
+            <div class="cc-num">•••• •••• •••• 4521</div>
+          </div>
+          <div class="cli-body">
+            <h4>HDFC Diners Club Black</h4>
+            <ul class="cli-features">
+              <li>✈️ 10x rewards on travel bookings</li>
+              <li>🛋️ Unlimited airport lounge access</li>
+              <li>🎬 Complimentary OTT subscriptions</li>
+              <li>⛳ Golf privileges worldwide</li>
+            </ul>
+            <p class="cli-fee">Annual Fee: ₹10,000 + taxes</p>
+            <a href="javascript:void(0)" class="btn-primary" onclick="this.textContent='✓ Applied!';this.style.background='linear-gradient(135deg,#059669,#047857)';return false">Apply Now</a>
+          </div>
+        </div>
+
+        <div class="card-listing-item" data-category="cashback">
+          <div class="cli-visual cc-green">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">ICICI Bank</div>
+            <div class="cc-num">•••• •••• •••• 6671</div>
+          </div>
+          <div class="cli-body">
+            <h4>ICICI Amazon Pay Card</h4>
+            <ul class="cli-features">
+              <li>🛒 5% cashback on Amazon.in</li>
+              <li>⛽ 2% back on fuel & utilities</li>
+              <li>🎁 1% cashback everywhere else</li>
+              <li>🆓 No joining fee</li>
+            </ul>
+            <p class="cli-fee">Annual Fee: ₹0 (Lifetime Free)</p>
+            <a href="javascript:void(0)" class="btn-primary" onclick="this.textContent='✓ Applied!';this.style.background='linear-gradient(135deg,#059669,#047857)';return false">Apply Now</a>
+          </div>
+        </div>
+
+        <div class="card-listing-item" data-category="travel rewards premium">
+          <div class="cli-visual cc-blue">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">Axis Bank</div>
+            <div class="cc-num">•••• •••• •••• 3312</div>
+          </div>
+          <div class="cli-body">
+            <h4>Axis Bank Magnus</h4>
+            <ul class="cli-features">
+              <li>⚡ 12 Edge Rewards per ₹200 spent</li>
+              <li>🏨 ITC & Marriott memberships</li>
+              <li>✈️ Priority Pass membership</li>
+              <li>🎭 Entertainment & dining benefits</li>
+            </ul>
+            <p class="cli-fee">Annual Fee: ₹12,500 + taxes</p>
+            <a href="javascript:void(0)" class="btn-primary" onclick="this.textContent='✓ Applied!';this.style.background='linear-gradient(135deg,#059669,#047857)';return false">Apply Now</a>
+          </div>
+        </div>
+
+        <div class="card-listing-item" data-category="rewards shopping">
+          <div class="cli-visual cc-gold">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">SBI Card</div>
+            <div class="cc-num">•••• •••• •••• 7890</div>
+          </div>
+          <div class="cli-body">
+            <h4>SBI Card ELITE</h4>
+            <ul class="cli-features">
+              <li>🛍️ 5x rewards on departmental stores</li>
+              <li>✈️ 2 complimentary air tickets/year</li>
+              <li>🎬 2 free movie tickets/month</li>
+              <li>🍽️ Complimentary dining vouchers</li>
+            </ul>
+            <p class="cli-fee">Annual Fee: ₹4,999 + taxes</p>
+            <a href="javascript:void(0)" class="btn-primary" onclick="this.textContent='✓ Applied!';this.style.background='linear-gradient(135deg,#059669,#047857)';return false">Apply Now</a>
+          </div>
+        </div>
+
+        <div class="card-listing-item" data-category="cashback fuel">
+          <div class="cli-visual" style="background:linear-gradient(135deg,#1e3a5f,#2563eb)">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">Kotak Bank</div>
+            <div class="cc-num">•••• •••• •••• 2281</div>
+          </div>
+          <div class="cli-body">
+            <h4>Kotak Essentia Platinum</h4>
+            <ul class="cli-features">
+              <li>🛒 10% cashback on grocery</li>
+              <li>⛽ 2.5% waiver on fuel surcharge</li>
+              <li>💊 5% back on pharmacy</li>
+              <li>🆓 No annual fee 1st year</li>
+            </ul>
+            <p class="cli-fee">Annual Fee: ₹1,500 + taxes</p>
+            <a href="javascript:void(0)" class="btn-primary" onclick="this.textContent='✓ Applied!';this.style.background='linear-gradient(135deg,#059669,#047857)';return false">Apply Now</a>
+          </div>
+        </div>
+
+        <div class="card-listing-item" data-category="travel cashback">
+          <div class="cli-visual" style="background:linear-gradient(135deg,#1c1c1e,#3a3a3c)">
+            <div class="cc-chip"></div>
+            <div class="cc-bank">Yes Bank</div>
+            <div class="cc-num">•••• •••• •••• 5543</div>
+          </div>
+          <div class="cli-body">
+            <h4>Yes First Exclusive</h4>
+            <ul class="cli-features">
+              <li>🌏 2 reward points per ₹100</li>
+              <li>✈️ Complimentary lounge access</li>
+              <li>🏨 Complimentary hotel stays</li>
+              <li>💼 Concierge services 24/7</li>
+            </ul>
+            <p class="cli-fee">Annual Fee: ₹9,999 + taxes</p>
+            <a href="javascript:void(0)" class="btn-primary" onclick="this.textContent='✓ Applied!';this.style.background='linear-gradient(135deg,#059669,#047857)';return false">Apply Now</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="logo-icon">◈</span><span class="logo-text">MRABILITY <span class="accent">Finance</span></span></a>
+        <p>India's fastest growing fintech platform.</p>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="personal-loan.html">Personal Loan</a></li>
+        <li><a href="home-loan.html">Home Loan</a></li>
+        <li><a href="credit-cards.html">Credit Cards</a></li>
+        <li><a href="credit-score.html">Credit Score</a></li>
+        <li><a href="calculators.html">Calculators</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container footer-bottom-inner">
+      <p>© 2026 MRABILITY Finance Pvt Ltd. All rights reserved.</p>
+    </div></div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <script src="app.js"></script>
+  <script>
+    // Filter chips
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const cardItems = document.querySelectorAll('.card-listing-item');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const filter = chip.dataset.filter;
+        cardItems.forEach(item => {
+          const cats = item.dataset.category || '';
+          if (filter === 'all' || cats.includes(filter)) {
+            item.style.display = '';
+            item.style.animation = 'fadeIn .3s ease';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- LOGIN / REGISTER MODAL -->
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" data-modal-tab="login">Login</button>
+        <button class="modal-tab" data-modal-tab="register">Register</button>
+      </div>
+      <div class="modal-panel active" id="modal-login">
+        <div class="modal-header">
+          <div class="modal-logo">&#9672; <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+          <h2>Welcome Back!</h2><p>Login to access your loan dashboard</p>
+        </div>
+        <form class="modal-form" id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group"><label>Mobile / Email</label>
+            <input type="text" id="loginId" placeholder="Enter mobile or email" required />
+            <span class="field-err" id="loginIdErr"></span></div>
+          <div class="form-group"><label>Password</label>
+            <div class="input-with-icon">
+              <input type="password" id="loginPass" placeholder="Enter password" required />
+              <button type="button" class="toggle-pass" onclick="togglePassword('loginPass',this)">&#128065;</button>
+            </div>
+            <span class="field-err" id="loginPassErr"></span></div>
+          <div class="modal-row">
+            <label class="check-label"><input type="checkbox" /> Remember me</label>
+            <a href="javascript:void(0)" class="forgot-link" onclick="showForgot();">Forgot Password?</a>
+          </div>
+          <button type="submit" class="btn-primary modal-submit" id="loginBtn">Login to MRABILITY Finance</button>
+          <div class="modal-divider"><span>or continue with</span></div>
+          <div class="social-login-btns">
+            <button type="button" class="social-btn" onclick="socialLogin('Google')"><span class="social-icon">G</span> Google</button>
+            <button type="button" class="social-btn" onclick="socialLogin('Facebook')"><span class="social-icon fb">f</span> Facebook</button>
+          </div>
+          <p class="modal-switch">No account? <a href="javascript:void(0)" onclick="switchModalTab('register');">Register Free</a></p>
+        </form>
+      </div>
+      <div class="modal-panel" id="modal-register">
+        <div class="modal-header">
+          <div class="modal-logo">&#9672; <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div>
+          <h2>Create Account</h2><p>Join 5.8 Lakh+ smart borrowers</p>
+        </div>
+        <form class="modal-form" id="registerForm" onsubmit="handleRegister(event)">
+          <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name" required /><span class="field-err" id="regNameErr"></span></div>
+          <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="+91 00000 00000" maxlength="13" required /><span class="field-err" id="regMobileErr"></span></div>
+          <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" placeholder="you@example.com" required /><span class="field-err" id="regEmailErr"></span></div>
+          <div class="form-group"><label>Password</label>
+            <div class="input-with-icon"><input type="password" id="regPass" placeholder="Min 8 characters" required />
+            <button type="button" class="toggle-pass" onclick="togglePassword('regPass',this)">&#128065;</button></div>
+            <div class="pass-strength" id="passStrength"><div class="pass-bar"><div class="pass-fill" id="passFill"></div></div><span id="passLabel">Strength</span></div>
+            <span class="field-err" id="regPassErr"></span></div>
+          <div class="form-group"><label class="check-label" style="align-items:flex-start;gap:.5rem"><input type="checkbox" id="regConsent" required style="margin-top:3px" /><span style="font-size:.775rem;font-weight:400;color:var(--text-mid)">I agree to <a href="terms.html" style="color:var(--primary)">Terms</a> &amp; <a href="privacy.html" style="color:var(--primary)">Privacy Policy</a></span></label></div>
+          <button type="submit" class="btn-primary modal-submit" id="registerBtn">Create My Account</button>
+          <p class="modal-switch">Have an account? <a href="javascript:void(0)" onclick="switchModalTab('login');">Login</a></p>
+        </form>
+      </div>
+      <div class="modal-panel" id="modal-forgot">
+        <div class="modal-header"><div class="modal-logo">&#9672; <span>MRABILITY <span style="color:var(--accent)">Finance</span></span></div><h2>Reset Password</h2><p>Enter your registered mobile or email</p></div>
+        <form class="modal-form" id="forgotForm" onsubmit="handleForgot(event)">
+          <div class="form-group"><label>Mobile / Email</label><input type="text" id="forgotId" placeholder="Enter mobile or email" required /></div>
+          <button type="submit" class="btn-primary modal-submit">Send OTP</button>
+          <p class="modal-switch"><a href="javascript:void(0)" onclick="switchModalTab('login');">&larr; Back to Login</a></p>
+        </form>
+      </div>
+      <div class="modal-panel" id="modal-success">
+        <div style="text-align:center;padding:2rem 1rem">
+          <div style="font-size:4rem;margin-bottom:1rem">&#127881;</div>
+          <h2 style="margin-bottom:.5rem" id="successTitle">Welcome!</h2>
+          <p style="color:var(--text-mid);margin-bottom:2rem" id="successMsg">You are logged in successfully.</p>
+          <button class="btn-primary" onclick="closeModal()" style="width:100%;justify-content:center">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

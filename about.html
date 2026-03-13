@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – MRABILITY Finance</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo"><span class="logo-icon">◈</span><span class="logo-text">MRABILITY <span class="accent">Finance</span></span></a>
+      <nav class="nav-links" id="navLinks">
+        <div class="nav-dropdown"><button class="nav-btn">Loans <span class="chevron">▾</span></button><div class="dropdown-menu"><a href="personal-loan.html">Personal Loan</a><a href="home-loan.html">Home Loan</a><a href="business-loan.html">Business Loan</a><a href="car-loan.html">Car Loan</a></div></div>
+        <a href="credit-cards.html" class="nav-link">Credit Cards</a>
+        <a href="credit-score.html" class="nav-link">Credit Score</a>
+        <a href="calculators.html" class="nav-link">Calculators</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-ghost" onclick="openLoginModal()">Login</button>
+        <button class="btn-primary" onclick="openLoginModal('register')">Get Started</button>
+        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="hero-badge">About MRABILITY Finance</div>
+      <h1>Redefining How India Borrows</h1>
+      <p>Founded in 2015, MRABILITY Finance connects millions of Indians with the right financial products through technology, transparency, and trust.</p>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="container" style="max-width:860px">
+      <div class="loan-info-card" style="margin-bottom:2rem">
+        <h2>Our Story</h2>
+        <p style="color:var(--text-mid);line-height:1.8;margin-top:1rem">MRABILITY Finance started with a simple belief — getting a loan in India shouldn't be complicated, opaque, or time-consuming. Our founders experienced firsthand the frustration of navigating dozens of banks, inconsistent interest rates, and mountains of paperwork.</p>
+        <p style="color:var(--text-mid);line-height:1.8;margin-top:1rem">So we built a platform that brings 95+ lenders onto one screen, uses AI to match borrowers with the best offers, and guides every customer from application to disbursal — digitally, transparently, and fast.</p>
+        <p style="color:var(--text-mid);line-height:1.8;margin-top:1rem">Today, MRABILITY Finance serves 5.8 lakh+ customers annually across 150+ cities and has facilitated over ₹61,000 Crore in loan disbursals.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-bottom:2rem">
+        <div style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-radius:var(--radius-lg);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;font-weight:900;color:var(--primary)">2015</div>
+          <div style="font-size:.875rem;color:var(--text-mid);margin-top:.5rem">Year Founded</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:var(--radius-lg);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;font-weight:900;color:#059669">95+</div>
+          <div style="font-size:.875rem;color:var(--text-mid);margin-top:.5rem">Banking Partners</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:var(--radius-lg);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;font-weight:900;color:#2563eb">5.8L+</div>
+          <div style="font-size:.875rem;color:var(--text-mid);margin-top:.5rem">Customers Served</div>
+        </div>
+        <div style="background:linear-gradient(135deg,#fefce8,#fef9c3);border-radius:var(--radius-lg);padding:2rem;text-align:center">
+          <div style="font-size:2.5rem;font-weight:900;color:#ca8a04">₹61K Cr</div>
+          <div style="font-size:.875rem;color:var(--text-mid);margin-top:.5rem">Disbursed</div>
+        </div>
+      </div>
+
+      <div class="loan-info-card" style="margin-bottom:2rem">
+        <h2>Our Mission</h2>
+        <p style="color:var(--text-mid);line-height:1.8;margin-top:1rem">To democratise access to credit in India by making the loan process fast, fair, and fully digital — for every Indian, regardless of where they live or work.</p>
+      </div>
+
+      <div class="loan-info-card">
+        <h2>Our Values</h2>
+        <div class="features-list" style="margin-top:1rem">
+          <div class="feature-item"><div class="feature-item-icon">🔍</div><div class="feature-item-text"><strong>Transparency</strong><span>No hidden fees, no surprises. Ever.</span></div></div>
+          <div class="feature-item"><div class="feature-item-icon">🤖</div><div class="feature-item-text"><strong>Technology First</strong><span>AI-powered matching for best outcomes</span></div></div>
+          <div class="feature-item"><div class="feature-item-icon">🤝</div><div class="feature-item-text"><strong>Customer Obsession</strong><span>Your goals are our goals</span></div></div>
+          <div class="feature-item"><div class="feature-item-icon">🔒</div><div class="feature-item-text"><strong>Data Privacy</strong><span>Your data, your control</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <h2>Join 5.8 Lakh+ Happy Customers</h2>
+      <p>Start your loan journey with MRABILITY Finance today.</p>
+      <div class="cta-actions">
+        <a href="personal-loan.html" class="btn-white btn-lg">Apply for a Loan</a>
+        <a href="credit-score.html" class="btn-outline-white btn-lg">Check Credit Score</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-icon">◈</span><span class="logo-text">MRABILITY <span class="accent">Finance</span></span></a><p>India's fastest growing fintech platform.</p></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="personal-loan.html">Personal Loan</a></li><li><a href="credit-cards.html">Credit Cards</a></li><li><a href="credit-score.html">Credit Score</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><div class="container footer-bottom-inner"><p>© 2026 MRABILITY Finance Pvt Ltd. All rights reserved.</p></div></div>
+  </footer>
+  <button class="back-to-top" id="backToTop">↑</button>
+  <div class="modal-overlay" id="loginModal" role="dialog" aria-modal="true"><div class="modal-box"><button class="modal-close" id="modalClose">✕</button><div class="modal-tabs"><button class="modal-tab active" data-modal-tab="login">Login</button><button class="modal-tab" data-modal-tab="register">Register</button></div><div class="modal-panel active" id="modal-login"><div class="modal-header"><div class="modal-logo">◈ MRABILITY Finance</div><h2>Welcome Back!</h2></div><form class="modal-form" onsubmit="handleLogin(event)"><div class="form-group"><label>Mobile / Email</label><input type="text" id="loginId" required/><span class="field-err" id="loginIdErr"></span></div><div class="form-group"><label>Password</label><div class="input-with-icon"><input type="password" id="loginPass" required/><button type="button" class="toggle-pass" onclick="togglePassword('loginPass',this)">👁</button></div><span class="field-err" id="loginPassErr"></span></div><div class="modal-row"><label class="check-label"><input type="checkbox"/> Remember me</label><a href="javascript:void(0)" class="forgot-link" onclick="showForgot();">Forgot?</a></div><button type="submit" class="btn-primary modal-submit" id="loginBtn">Login</button><p class="modal-switch">No account? <a href="javascript:void(0)" onclick="switchModalTab('register');">Register</a></p></form></div><div class="modal-panel" id="modal-register"><div class="modal-header"><div class="modal-logo">◈ MRABILITY Finance</div><h2>Create Account</h2></div><form class="modal-form" onsubmit="handleRegister(event)"><div class="form-group"><label>Full Name</label><input type="text" id="regName" required/><span class="field-err" id="regNameErr"></span></div><div class="form-group"><label>Mobile</label><input type="tel" id="regMobile" required/><span class="field-err" id="regMobileErr"></span></div><div class="form-group"><label>Email</label><input type="email" id="regEmail" required/><span class="field-err" id="regEmailErr"></span></div><div class="form-group"><label>Password</label><div class="input-with-icon"><input type="password" id="regPass" required/><button type="button" class="toggle-pass" onclick="togglePassword('regPass',this)">👁</button></div><div class="pass-strength" id="passStrength"><div class="pass-bar"><div class="pass-fill" id="passFill"></div></div><span id="passLabel">Strength</span></div><span class="field-err" id="regPassErr"></span></div><div class="form-group"><label class="check-label"><input type="checkbox" id="regConsent" required/> I agree to Terms</label></div><button type="submit" class="btn-primary modal-submit" id="registerBtn">Create Account</button></form></div><div class="modal-panel" id="modal-forgot"><form class="modal-form" onsubmit="handleForgot(event)"><div class="modal-header"><h2>Reset Password</h2></div><div class="form-group"><input type="text" id="forgotId" placeholder="Mobile or email" required/></div><button type="submit" class="btn-primary modal-submit">Send OTP</button><p class="modal-switch"><a href="javascript:void(0)" onclick="switchModalTab('login');">← Back</a></p></form></div><div class="modal-panel" id="modal-success"><div style="text-align:center;padding:2rem"><div style="font-size:4rem">🎉</div><h2 id="successTitle">Welcome!</h2><p style="color:var(--text-mid);margin:1rem 0" id="successMsg">Logged in.</p><button class="btn-primary" onclick="closeModal()" style="width:100%;justify-content:center">Continue</button></div></div></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
