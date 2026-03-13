@@ -949,7 +949,7 @@ function showOAuthSetupModal(provider, serverDown = false) {
     <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:.875rem 1rem;font-size:.77rem;text-align:left;margin-bottom:1.25rem;width:100%;line-height:1.8">
       1. Visit <strong>developers.facebook.com</strong> → Create App<br/>
       2. Add Facebook Login, set redirect URI:<br/>
-      <code style="background:#e2e8f0;padding:.1rem .35rem;border-radius:4px;font-size:.72rem">http://localhost:8080/api/auth/facebook/callback</code><br/>
+      <code style="background:#e2e8f0;padding:.1rem .35rem;border-radius:4px;font-size:.72rem">${window.location.origin}/api/auth/facebook/callback</code><br/>
       3. Restart: <code style="background:#e2e8f0;padding:.1rem .35rem;border-radius:4px;font-size:.72rem">FACEBOOK_APP_ID=x FACEBOOK_APP_SECRET=y ./start.sh</code>
     </div>` : ''}
     <div style="display:flex;flex-direction:column;gap:.5rem;width:100%">
@@ -1001,7 +1001,7 @@ function updateNavForLoggedIn(name, role = 'user') {
   pill.className = 'user-pill';
   pill.style.cursor = 'pointer';
 
-  let menuHtml = `<div class="user-avatar">${name.charAt(0).toUpperCase()}</div><span>${name.split(' ')[0]}</span>`;
+  let menuHtml = `<div class="user-avatar">${name.charAt(0).toUpperCase()}</div><span class="user-name">${name.split(' ')[0]}</span>`;
   pill.innerHTML = menuHtml;
   pill.title = `Logged in as ${name} (${role})`;
 
@@ -1208,7 +1208,7 @@ window.showToast = (msg, type = 'success') => {
       padding:.875rem 2rem; border-radius:50px; font-size:.875rem; font-weight:600;
       box-shadow:0 8px 30px rgba(0,0,0,.2); z-index:9999;
       transition:transform .35s cubic-bezier(.34,1.56,.64,1), opacity .35s ease;
-      opacity:0; white-space:nowrap;
+      opacity:0; white-space:nowrap; max-width:90vw; overflow:hidden; text-overflow:ellipsis;
     `;
     document.body.appendChild(toast);
   }

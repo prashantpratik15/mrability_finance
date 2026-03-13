@@ -813,6 +813,15 @@
         </div>
       </div>
       <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="personal-loan.html">Personal Loan</a></li>
+          <li><a href="home-loan.html">Home Loan</a></li>
+          <li><a href="credit-cards.html">Credit Cards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
         <h4>Loans</h4>
         <ul>
           <li><a href="personal-loan.html">Personal Loan</a></li>
@@ -1069,7 +1078,7 @@
       google.accounts.id.renderButton(container, {
         theme: 'outline',
         size: 'large',
-        width: 340,
+        width: Math.min(340, document.querySelector('.modal-box')?.clientWidth - 60 || 340),
         text: 'continue_with',
         shape: 'pill',
         logo_alignment: 'left',
@@ -1220,8 +1229,9 @@
                 1. Go to <strong>APIs &amp; Services → Credentials</strong><br/>
                 2. Click <strong>+ Create Credentials → OAuth 2.0 Client IDs</strong><br/>
                 3. Application type: <strong>Web application</strong><br/>
-                4. Authorised JavaScript origins: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px">http://localhost:8080</code><br/>
-                5. Authorised redirect URIs: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px">http://localhost:8080/api/auth/google/callback</code>
+                4. Authorised JavaScript origins: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px" id="oauthOrigin"></code><br/>
+                5. Authorised redirect URIs: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px" id="oauthRedirect"></code>
+                <script>document.getElementById('oauthOrigin').textContent=window.location.origin;document.getElementById('oauthRedirect').textContent=window.location.origin+'/api/auth/google/callback';</script>
               </div>
             </div>
 

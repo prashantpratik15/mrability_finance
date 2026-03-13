@@ -72,10 +72,10 @@
             <div class="form-group"><label>Date of Birth <span style="color:#ef4444">*</span></label><input type="date" name="dob" required/></div>
             <div class="form-group"><label>Pincode <span style="color:#ef4444">*</span></label><input type="text" name="pincode" placeholder="e.g. 110001" maxlength="6" pattern="[0-9]{6}" required/></div>
             <div class="form-group"><label>Property Type</label>
-              <select><option>Residential</option><option>Commercial</option><option>Industrial</option></select>
+              <select name="property_type"><option>Residential</option><option>Commercial</option><option>Industrial</option></select>
             </div>
-            <div class="form-group"><label>Property Value (₹)</label><input type="number" placeholder="e.g. 5000000" required/></div>
-            <div class="form-group"><label>Loan Amount Required (₹)</label><input type="number" placeholder="e.g. 3000000" required/></div>
+            <div class="form-group"><label>Property Value (₹)</label><input type="number" name="property_value" placeholder="e.g. 5000000" required/></div>
+            <div class="form-group"><label>Loan Amount Required (₹)</label><input type="number" name="loan_amount" placeholder="e.g. 3000000" required/></div>
             <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:.875rem">Check Eligibility</button>
             <p class="form-note">🔒 No impact on your CIBIL score.</p>
           </form>
