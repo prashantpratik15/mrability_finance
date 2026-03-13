@@ -350,7 +350,7 @@
   const tbody = document.getElementById('loanTable');
   if (!tbody) return;
   try {
-    const res  = await fetch('http://localhost:8080/api/rates?loan_type=personal_loan');
+    const res  = await fetch('/api/rates?loan_type=personal_loan');
     const data = await res.json();
     const rows = (data.flat || []).filter(r => r.loan_type === 'personal_loan');
     if (!rows.length) throw new Error('no data');

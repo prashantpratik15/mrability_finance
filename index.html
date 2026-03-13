@@ -1084,7 +1084,7 @@
       showGoogleLoading(true);
 
       try {
-        const res  = await fetch('http://localhost:8080/api/auth/google/token', {
+        const res  = await fetch('/api/auth/google/token', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ credential })
@@ -1127,7 +1127,7 @@
     }
 
     // Load the client ID from server and init
-    fetch('http://localhost:8080/api/auth/google/check')
+    fetch('/api/auth/google/check')
       .then(r => r.json())
       .then(data => {
         if (data.client_id) {

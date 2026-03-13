@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fmt = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
 
   /* ---- Load calculator defaults from API, then wire all calculators ---- */
-  const API_BASE = 'http://localhost:8080/api';
+  const API_BASE = '/api';
 
   async function loadCalcDefaults() {
     try {
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ===================================================== */
 
 /* ---- API + Session Store ---- */
-const API = 'http://localhost:8080/api';
+const API = '/api';
 
 const FinNova = {
   // ── Session (JWT stored in localStorage) ──────────
