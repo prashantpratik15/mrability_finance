@@ -687,6 +687,45 @@ const markInput = (id, valid) => {
   el.classList.toggle('success', valid);
 };
 
+// ---- Mobile Number Validation ----
+function sanitizeMobile(raw) {
+  return raw.replace(/\D/g, '').replace(/^91/, '').slice(0, 10);
+}
+
+function isValidIndianMobile(num) {
+  return /^[6-9]\d{9}$/.test(num);
+}
+
+function setupMobileInputs() {
+  document.querySelectorAll('input[type="tel"]').forEach(inp => {
+    inp.setAttribute('inputmode', 'numeric');
+    inp.setAttribute('pattern', '[0-9]*');
+    inp.setAttribute('maxlength', '10');
+    inp.placeholder = 'Enter 10-digit mobile number';
+
+    inp.addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    });
+
+    inp.addEventListener('blur', function() {
+      const v = this.value.trim();
+      if (v && !isValidIndianMobile(v)) {
+        this.classList.add('error');
+        this.classList.remove('success');
+        const errSpan = this.parentElement.querySelector('.field-err');
+        if (errSpan) errSpan.textContent = 'Enter a valid 10-digit mobile number starting with 6-9';
+      } else if (v) {
+        this.classList.remove('error');
+        this.classList.add('success');
+        const errSpan = this.parentElement.querySelector('.field-err');
+        if (errSpan) errSpan.textContent = '';
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupMobileInputs);
+
 // ---- Login Handler ----
 window.handleLogin = (e) => {
   e.preventDefault();
@@ -743,7 +782,7 @@ window.handleRegister = (e) => {
   clearErrs('regNameErr', 'regMobileErr', 'regEmailErr', 'regPassErr');
 
   const name    = document.getElementById('regName')?.value.trim() || '';
-  const mobile  = document.getElementById('regMobile')?.value.trim() || '';
+  const mobile  = sanitizeMobile(document.getElementById('regMobile')?.value || '');
   const email   = document.getElementById('regEmail')?.value.trim() || '';
   const pass    = document.getElementById('regPass')?.value || '';
   const consent = document.getElementById('regConsent')?.checked;
@@ -754,8 +793,8 @@ window.handleRegister = (e) => {
     markInput('regName', false); valid = false;
   } else { markInput('regName', true); }
 
-  if (!/^[6-9]\d{9}$/.test(mobile.replace(/\D/g, ''))) {
-    setErr('regMobileErr', 'Enter a valid 10-digit Indian mobile number.');
+  if (!isValidIndianMobile(mobile)) {
+    setErr('regMobileErr', 'Enter a valid 10-digit Indian mobile number starting with 6-9.');
     markInput('regMobile', false); valid = false;
   } else { markInput('regMobile', true); }
 
@@ -1163,11 +1202,11 @@ window.submitLoanForm = (e, loanType) => {
   });
 
   const nameVal   = (formData.full_name || formData.loanName || formData.name || '').trim();
-  const mobileVal = (formData.mobile || formData.loanMobile || '').trim();
+  const mobileVal = sanitizeMobile(formData.mobile || formData.loanMobile || '');
   const dobVal    = (formData.dob || '').trim();
   const pinVal    = (formData.pincode || '').trim();
   if (!nameVal)   { showToast('Full Name is required', 'error'); return; }
-  if (!mobileVal) { showToast('Mobile Number is required', 'error'); return; }
+  if (!isValidIndianMobile(mobileVal)) { showToast('Enter valid 10-digit mobile number starting with 6-9', 'error'); return; }
   if (!dobVal)    { showToast('Date of Birth is required', 'error'); return; }
   if (!pinVal || !/^[0-9]{6}$/.test(pinVal)) { showToast('Valid 6-digit Pincode is required', 'error'); return; }
 

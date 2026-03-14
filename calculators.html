@@ -353,7 +353,7 @@
         </div>
         <form class="modal-form" id="registerForm" onsubmit="handleRegister(event)">
           <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name" required /><span class="field-err" id="regNameErr"></span></div>
-          <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="+91 00000 00000" maxlength="13" required /><span class="field-err" id="regMobileErr"></span></div>
+          <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="Enter 10-digit mobile number" inputmode="numeric" pattern="[0-9]*" maxlength="10" required /><span class="field-err" id="regMobileErr"></span></div>
           <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" placeholder="you@example.com" required /><span class="field-err" id="regEmailErr"></span></div>
           <div class="form-group"><label>Password</label>
             <div class="input-with-icon"><input type="password" id="regPass" placeholder="Min 8 characters" required />

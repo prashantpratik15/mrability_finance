@@ -94,7 +94,7 @@
           </div>
           <div class="form-group">
             <label>Mobile Number</label>
-            <input type="tel" id="scMobile" placeholder="+91 00000 00000" required />
+            <input type="tel" id="scMobile" placeholder="Enter 10-digit mobile number" inputmode="numeric" pattern="[0-9]*" required />
           </div>
           <div class="form-group" style="display:flex;align-items:flex-start;gap:.5rem">
             <input type="checkbox" id="scConsent" required style="width:auto;margin-top:3px" />
@@ -247,6 +247,11 @@
   <script>
     function runScoreCheck(e) {
       e.preventDefault();
+      const mob = (document.getElementById('scMobile')?.value || '').replace(/\D/g, '').slice(0, 10);
+      if (!/^[6-9]\d{9}$/.test(mob)) {
+        if (typeof showToast === 'function') showToast('Enter valid 10-digit mobile number starting with 6-9', 'error');
+        return;
+      }
       const btn = document.getElementById('scoreBtn');
       btn.textContent = 'Fetching your score...';
       btn.disabled = true;
@@ -325,7 +330,7 @@
         </div>
         <form class="modal-form" id="registerForm" onsubmit="handleRegister(event)">
           <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Enter your full name" required /><span class="field-err" id="regNameErr"></span></div>
-          <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="+91 00000 00000" maxlength="13" required /><span class="field-err" id="regMobileErr"></span></div>
+          <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="Enter 10-digit mobile number" inputmode="numeric" pattern="[0-9]*" maxlength="10" required /><span class="field-err" id="regMobileErr"></span></div>
           <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" placeholder="you@example.com" required /><span class="field-err" id="regEmailErr"></span></div>
           <div class="form-group"><label>Password</label>
             <div class="input-with-icon"><input type="password" id="regPass" placeholder="Min 8 characters" required />

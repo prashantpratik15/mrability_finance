@@ -87,7 +87,7 @@
           <h3>Apply for Car Loan</h3>
           <form onsubmit="submitLoanForm(event,'car_loan')">
             <div class="form-group"><label>Full Name <span style="color:#ef4444">*</span></label><input type="text" id="loanName" name="full_name" placeholder="Your full name" required /></div>
-            <div class="form-group"><label>Mobile Number <span style="color:#ef4444">*</span></label><input type="tel" id="loanMobile" name="mobile" placeholder="+91 00000 00000" maxlength="13" required /></div>
+            <div class="form-group"><label>Mobile Number <span style="color:#ef4444">*</span></label><input type="tel" id="loanMobile" name="mobile" placeholder="Enter 10-digit mobile number" inputmode="numeric" pattern="[0-9]*" maxlength="10" required /></div>
             <div class="form-group"><label>Date of Birth <span style="color:#ef4444">*</span></label><input type="date" name="dob" required /></div>
             <div class="form-group"><label>Pincode <span style="color:#ef4444">*</span></label><input type="text" name="pincode" placeholder="e.g. 110001" maxlength="6" pattern="[0-9]{6}" required /></div>
             <div class="form-group"><label>Car Type</label>
@@ -166,7 +166,7 @@
         </div>
         <form class="modal-form" id="registerForm" onsubmit="handleRegister(event)">
           <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Your full name" required /><span class="field-err" id="regNameErr"></span></div>
-          <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="+91 00000 00000" maxlength="13" required /><span class="field-err" id="regMobileErr"></span></div>
+          <div class="form-group"><label>Mobile Number</label><input type="tel" id="regMobile" placeholder="Enter 10-digit mobile number" inputmode="numeric" pattern="[0-9]*" maxlength="10" required /><span class="field-err" id="regMobileErr"></span></div>
           <div class="form-group"><label>Email Address</label><input type="email" id="regEmail" placeholder="you@example.com" required /><span class="field-err" id="regEmailErr"></span></div>
           <div class="form-group"><label>Password</label>
             <div class="input-with-icon"><input type="password" id="regPass" placeholder="Min 8 characters" required />
