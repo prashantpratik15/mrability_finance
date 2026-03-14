@@ -1005,7 +1005,7 @@ async function apiFetch(path, method='GET', body=null, auth=true) {
   const res  = await fetch(API + path, opts);
   const data = await res.json();
   if (auth && res.status === 401) { forceLogout(); throw new Error('session_expired'); }
-  return { ...data, ok: res.ok, status: res.status };
+  return { ...data, ok: res.ok, _httpStatus: res.status };
 }
 
 /* ── Page navigation ────────────────────────────── */
