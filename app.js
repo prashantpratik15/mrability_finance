@@ -788,7 +788,7 @@ window.handleLogin = (e) => {
   if (btn) { btn.classList.add('loading'); btn.disabled = true; btn.textContent = 'Logging in...'; }
 
   FinNova.login(userId, pass).then(data => {
-    if (btn) { btn.classList.remove('loading'); btn.disabled = false; btn.textContent = 'Login to MRABILITY Finance'; }
+    if (btn) { btn.classList.remove('loading'); btn.disabled = false; btn.textContent = 'Login'; }
     if (!data.ok) {
       setErr('loginPassErr', data.error || 'Invalid credentials');
       markInput('loginPass', false);
@@ -803,7 +803,7 @@ window.handleLogin = (e) => {
     _resetLoanForms();
     setTimeout(autoFillLoanForm, 300);
   }).catch(() => {
-    if (btn) { btn.classList.remove('loading'); btn.disabled = false; btn.textContent = 'Login to MRABILITY Finance'; }
+    if (btn) { btn.classList.remove('loading'); btn.disabled = false; btn.textContent = 'Login'; }
     setErr('loginPassErr', 'Server error. Please try again.');
   });
 };
