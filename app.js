@@ -1272,4 +1272,24 @@ window.showToast = (msg, type = 'success') => {
   }, 4000);
 };
 
+// ---- Warn before leaving if form has unsaved data ----
+(function() {
+  function hasUnsavedFormData() {
+    const forms = document.querySelectorAll('.apply-form-card form, #loginForm, #registerForm');
+    for (const form of forms) {
+      if (form.closest('.modal-overlay') && !form.closest('.modal-overlay.active')) continue;
+      const inputs = form.querySelectorAll('input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([readonly]), select, textarea');
+      for (const inp of inputs) {
+        if (inp.value && inp.value.trim()) return true;
+      }
+    }
+    return false;
+  }
 
+  window.addEventListener('beforeunload', function(e) {
+    if (hasUnsavedFormData()) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
+})();
