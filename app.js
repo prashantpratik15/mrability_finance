@@ -1180,20 +1180,31 @@ window.applyNow = (loanType) => {
   }
 };
 
-// Auto-fill name/email/mobile from session when user is logged in
+// Auto-fill name/email/mobile from session or URL params (admin apply-on-behalf)
 window.autoFillLoanForm = async () => {
-  const session = FinNova.getSession();
-  const token   = FinNova.getToken();
-  if (!session || !session.loggedIn) return;
+  const params = new URLSearchParams(window.location.search);
+  const applyFor = params.get('apply_for');
 
-  // Try to get full profile from API, fallback to session data
-  let user = { name: session.name, mobile: '', email: '' };
-  try {
-    const res = await fetch(`${API}/auth/me`, {
-      headers: { 'Authorization': `Bearer ${token}` }, cache: 'no-store'
-    });
-    if (res.ok) user = await res.json();
-  } catch { /* use session fallback */ }
+  let user;
+  if (applyFor) {
+    user = {
+      name: applyFor,
+      mobile: params.get('apply_mobile') || '',
+      email: params.get('apply_email') || ''
+    };
+  } else {
+    const session = FinNova.getSession();
+    const token   = FinNova.getToken();
+    if (!session || !session.loggedIn) return;
+
+    user = { name: session.name, mobile: '', email: '' };
+    try {
+      const res = await fetch(`${API}/auth/me`, {
+        headers: { 'Authorization': `Bearer ${token}` }, cache: 'no-store'
+      });
+      if (res.ok) user = await res.json();
+    } catch { /* use session fallback */ }
+  }
 
   // Fill each form in the page
   document.querySelectorAll('.apply-form-card form, form[onsubmit*="submitLoanForm"]').forEach(form => {

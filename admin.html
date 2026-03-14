@@ -1196,14 +1196,9 @@ async function viewCustomerApps(id, name, email, mobile, role, joined) {
             <span style="color:var(--text-light);font-size:.8rem">${fmtDateShort(a.created_at)}</span>
           </div>`).join('')
           : `<div style="text-align:center;padding:1.5rem 0">
-              <p style="color:var(--text-light);font-size:.85rem;margin-bottom:1rem">No applications yet</p>
+              <p style="color:var(--text-light);font-size:.85rem;margin-bottom:1rem">No applications yet — apply on behalf:</p>
               <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center">
-                <a href="personal-loan.html" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">💼 Personal Loan</a>
-                <a href="home-loan.html" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">🏠 Home Loan</a>
-                <a href="business-loan.html" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">🏢 Business Loan</a>
-                <a href="car-loan.html" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">🚗 Car Loan</a>
-                <a href="lap.html" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">🏗️ Loan Against Property</a>
-                <a href="used-car-loan.html" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">🛵 Two Wheeler</a>
+                ${['personal-loan.html|💼 Personal Loan','home-loan.html|🏠 Home Loan','business-loan.html|🏢 Business Loan','car-loan.html|🚗 Car Loan','lap.html|🏗️ Loan Against Property','used-car-loan.html|🛵 Two Wheeler'].map(l=>{const[url,label]=l.split('|');const q='?apply_for='+encodeURIComponent(name)+'&apply_mobile='+encodeURIComponent(mobile||'')+'&apply_email='+encodeURIComponent(email);return '<a href="'+url+q+'" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">'+label+'</a>';}).join('')}
               </div>
             </div>`}
       </div>
