@@ -276,14 +276,16 @@ def init_db():
 
     # Placeholder helpers
     P = "%s" if USE_POSTGRES else "?"
-    OCI = "ON CONFLICT DO NOTHING" if USE_POSTGRES else "OR IGNORE"
+    # PostgreSQL: ON CONFLICT goes at the end; SQLite: OR IGNORE goes after INSERT
+    OCI_PRE = "" if USE_POSTGRES else "OR IGNORE"
+    OCI_POST = "ON CONFLICT DO NOTHING" if USE_POSTGRES else ""
 
     # Create default admin user if not exists
     admin_pw = bcrypt.hashpw(b'Admin@1234', bcrypt.gensalt()).decode()
     try:
         cur.execute(f"""
-            INSERT {OCI} INTO users (name, mobile, email, password, role)
-            VALUES ({P},{P},{P},{P},{P})
+            INSERT {OCI_PRE} INTO users (name, mobile, email, password, role)
+            VALUES ({P},{P},{P},{P},{P}) {OCI_POST}
         """, ('Admin User', '9999999999', 'admin@mrability.in', admin_pw, 'admin'))
         conn.commit()
         print("✅ Default admin: admin@mrability.in / Admin@1234")
@@ -321,9 +323,9 @@ def init_db():
     for r in rates_seed:
         try:
             cur.execute(f"""
-                INSERT {OCI} INTO interest_rates
+                INSERT {OCI_PRE} INTO interest_rates
                   (loan_type,bank_name,rate_min,rate_max,processing_fee,max_amount,tenure_max,is_featured,display_order)
-                VALUES ({P},{P},{P},{P},{P},{P},{P},{P},{P})""", r)
+                VALUES ({P},{P},{P},{P},{P},{P},{P},{P},{P}) {OCI_POST}""", r)
         except Exception as e:
             conn.rollback()
             print(f"Rate seed skip: {e}")
@@ -341,7 +343,7 @@ def init_db():
     ]
     for k, v, lbl in calc_defaults:
         try:
-            cur.execute(f"INSERT {OCI} INTO calculator_defaults (key,value,label) VALUES ({P},{P},{P})", (k, v, lbl))
+            cur.execute(f"INSERT {OCI_PRE} INTO calculator_defaults (key,value,label) VALUES ({P},{P},{P}) {OCI_POST}", (k, v, lbl))
         except Exception as e:
             conn.rollback()
             print(f"Calc default seed skip: {e}")
