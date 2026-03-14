@@ -1231,7 +1231,6 @@
                 3. Application type: <strong>Web application</strong><br/>
                 4. Authorised JavaScript origins: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px" id="oauthOrigin"></code><br/>
                 5. Authorised redirect URIs: <code style="background:#e2e8f0;padding:.1rem .4rem;border-radius:4px" id="oauthRedirect"></code>
-                <script>document.getElementById('oauthOrigin').textContent=window.location.origin;document.getElementById('oauthRedirect').textContent=window.location.origin+'/api/auth/google/callback';</script>
               </div>
             </div>
 
@@ -1260,6 +1259,8 @@
           ">Got it — use Email Login for now</button>
         </div>`;
       document.body.appendChild(overlay);
+      overlay.querySelector('#oauthOrigin').textContent = window.location.origin;
+      overlay.querySelector('#oauthRedirect').textContent = window.location.origin + '/api/auth/google/callback';
       overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
     }
 
