@@ -964,7 +964,7 @@ window.addEventListener('popstate', () => {
   }, { passive: false });
 })();
 
-window.addEventListener('DOMContentLoaded', async () => {
+async function verifyAdminSession() {
   const t = sessionStorage.getItem('adm_t');
   if (t) {
     token = t; adminName = sessionStorage.getItem('adm_n')||'Admin'; adminEmail = sessionStorage.getItem('adm_e')||'';
@@ -973,7 +973,15 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (me.ok && me.role === 'admin') { activateAdmin(); }
       else { forceLogout(); }
     } catch(e) { forceLogout(); }
+  } else {
+    forceLogout();
   }
+}
+
+window.addEventListener('DOMContentLoaded', verifyAdminSession);
+
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) verifyAdminSession();
 });
 
 function adminLogout() { sessionStorage.clear(); window.location.href = 'index.html'; }

@@ -553,14 +553,31 @@ const FinNova = {
 };
 
 // Restore session on page load
-document.addEventListener('DOMContentLoaded', () => {
+function syncSessionUI() {
   const session = FinNova.getSession();
+  const navActions = document.querySelector('.nav-actions');
+  if (navActions) {
+    navActions.querySelectorAll('.user-pill').forEach(el => el.remove());
+  }
   if (session && session.loggedIn) {
     updateNavForLoggedIn(session.name, session.role);
-    // Auto-fill loan form fields if on a loan page
     if (document.querySelector('.apply-form-card')) {
       autoFillLoanForm();
     }
+  } else if (navActions) {
+    const hasLoginBtn = navActions.querySelector('.btn-ghost, button[onclick*="openLoginModal"]');
+    if (!hasLoginBtn) {
+      window.location.reload();
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', syncSessionUI);
+
+// Re-sync when page is restored from back-forward cache
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) {
+    syncSessionUI();
   }
 });
 
