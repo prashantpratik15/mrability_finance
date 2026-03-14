@@ -553,31 +553,46 @@ const FinNova = {
 };
 
 // Restore session on page load
-function syncSessionUI() {
+let _lastSyncedUser = null;
+
+function syncSessionUI(fromCache) {
   const session = FinNova.getSession();
   const navActions = document.querySelector('.nav-actions');
+  const currentUser = session && session.loggedIn ? session.name + '|' + (session.id || '') : null;
+
   if (navActions) {
     navActions.querySelectorAll('.user-pill').forEach(el => el.remove());
   }
+
   if (session && session.loggedIn) {
     updateNavForLoggedIn(session.name, session.role);
     if (document.querySelector('.apply-form-card')) {
+      if (fromCache && _lastSyncedUser !== currentUser) {
+        _resetLoanForms();
+      }
       autoFillLoanForm();
     }
-  } else if (navActions) {
-    const hasLoginBtn = navActions.querySelector('.btn-ghost, button[onclick*="openLoginModal"]');
-    if (!hasLoginBtn) {
-      window.location.reload();
+    _lastSyncedUser = currentUser;
+  } else {
+    if (document.querySelector('.apply-form-card') && fromCache) {
+      _resetLoanForms();
+    }
+    _lastSyncedUser = null;
+    if (navActions) {
+      const hasLoginBtn = navActions.querySelector('.btn-ghost, button[onclick*="openLoginModal"]');
+      if (!hasLoginBtn) {
+        window.location.reload();
+      }
     }
   }
 }
 
-document.addEventListener('DOMContentLoaded', syncSessionUI);
+document.addEventListener('DOMContentLoaded', () => syncSessionUI(false));
 
 // Re-sync when page is restored from back-forward cache
 window.addEventListener('pageshow', (e) => {
   if (e.persisted) {
-    syncSessionUI();
+    syncSessionUI(true);
   }
 });
 
