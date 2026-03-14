@@ -1257,6 +1257,11 @@ window.submitLoanForm = (e, loanType) => {
     btn.textContent = 'Submitting...'; btn.disabled = true;
   }
 
+  const applyParams = new URLSearchParams(window.location.search);
+  if (applyParams.get('apply_for')) {
+    formData._apply_for_email = applyParams.get('apply_email') || '';
+  }
+
   FinNova.saveApplication(loanType, formData).then(refId => {
     if (btn) {
       btn.textContent = `✓ Submitted! Ref: ${refId}`;

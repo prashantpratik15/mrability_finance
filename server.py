@@ -710,13 +710,23 @@ def submit_application():
 
     # Extract user_id from token if present
     user_id = None
+    user_role = None
     auth = request.headers.get('Authorization', '')
     if auth.startswith('Bearer '):
         try:
             payload = decode_token(auth.split(' ', 1)[1])
             user_id = payload.get('sub')
+            user_role = payload.get('role')
         except Exception:
             pass
+
+    # Admin applying on behalf of a customer
+    apply_for_email = data.get('_apply_for_email', '').strip()
+    if apply_for_email and user_role == 'admin':
+        db_tmp = get_db()
+        cust = db_tmp.execute("SELECT id FROM users WHERE email=?", (apply_for_email,)).fetchone()
+        if cust:
+            user_id = cust['id']
 
     db = get_db()
     db.execute("""
