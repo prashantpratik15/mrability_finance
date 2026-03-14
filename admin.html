@@ -20,8 +20,8 @@
       --ease:.22s cubic-bezier(.4,0,.2,1);
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{height:100%}
-    body{font-family:var(--font);background:var(--bg);color:var(--text-dark);height:100%;display:flex;overflow:hidden}
+    html{height:100%;overscroll-behavior-x:none}
+    body{font-family:var(--font);background:var(--bg);color:var(--text-dark);height:100%;display:flex;overflow:hidden;overscroll-behavior-x:none}
     .hidden{display:none!important}
     a{text-decoration:none;color:inherit}
     button{cursor:pointer;border:none;background:none;font-family:var(--font);outline:none}
@@ -187,7 +187,7 @@
        TABLE / TOOLBAR
     ══════════════════════════════ */
     .table-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.75rem}
-    .table-scroll{overflow-x:auto;width:100%;-webkit-overflow-scrolling:touch}
+    .table-scroll{overflow-x:auto;width:100%;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
     .toolbar{padding:.875rem 1.25rem;border-bottom:1px solid var(--border);display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
     .srch-box{display:flex;align-items:center;gap:.4rem;border:1.5px solid var(--border);border-radius:8px;padding:.4rem .75rem;background:#fff;transition:.2s}
     .srch-box:focus-within{border-color:var(--primary)}
@@ -945,6 +945,24 @@ function adminLogout() {
   window.location.href = 'index.html';
 }
 document.addEventListener('click', () => closeAvatarMenu());
+
+// Prevent browser back-swipe from leaving admin page
+history.pushState(null, '', location.href);
+window.addEventListener('popstate', () => {
+  history.pushState(null, '', location.href);
+});
+
+// Block horizontal swipe-back gesture on touch devices
+(function() {
+  let startX = 0;
+  document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    const dx = e.touches[0].clientX - startX;
+    if (Math.abs(dx) > 30 && startX < 30) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+})();
 
 window.addEventListener('DOMContentLoaded', async () => {
   const t = sessionStorage.getItem('adm_t');
