@@ -1040,8 +1040,7 @@ function showOAuthSetupModal(provider, serverDown = false) {
 function updateNavForLoggedIn(name, role = 'user') {
   const navActions = document.querySelector('.nav-actions');
   if (!navActions) return;
-  // Remove old login/register buttons
-  navActions.querySelectorAll('.btn-ghost, .btn-primary:not(.hamburger), button[onclick*="openLoginModal"]')
+  navActions.querySelectorAll('.btn-ghost, .btn-primary:not(.hamburger), button[onclick*="openLoginModal"], .user-pill')
     .forEach(el => el.remove());
 
   const pill = document.createElement('div');

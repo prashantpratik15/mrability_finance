@@ -60,10 +60,30 @@
     .btn-danger{background:#fef2f2;color:#dc2626;border:1.5px solid #fca5a5;padding:.6rem 1.5rem;border-radius:50px;font-size:.85rem;font-weight:700;cursor:pointer;transition:.2s}
     .btn-danger:hover{background:#dc2626;color:#fff}
 
-    @media(max-width:600px){
+    @media(max-width:768px){
+      .page-hero{padding:3.5rem 1rem 1.5rem}
+      .page-hero h1{font-size:1.4rem}
+      .page-hero p{font-size:.85rem}
+      .profile-wrapper{margin-top:-1rem;padding:0 1rem 2rem}
+      .profile-card-header{padding:1.5rem;gap:1rem;flex-direction:column;text-align:center}
+      .avatar-circle{width:60px;height:60px;font-size:1.5rem}
+      .profile-header-info h2{font-size:1.2rem}
+      .profile-header-info p{font-size:.8rem}
+      .profile-card-body{padding:1.25rem}
       .info-grid{grid-template-columns:1fr}
-      .stats-strip{grid-template-columns:1fr 1fr}
-      .profile-card-header{flex-direction:column;text-align:center}
+      .stats-strip{grid-template-columns:repeat(3,1fr);gap:.5rem}
+      .stat-strip-card{padding:1rem .75rem;border-radius:12px}
+      .stat-strip-card .num{font-size:1.4rem}
+      .stat-strip-card .lbl{font-size:.7rem}
+    }
+    @media(max-width:480px){
+      .page-hero{padding:3rem 1rem 1rem}
+      .page-hero h1{font-size:1.2rem;margin-bottom:.25rem}
+      .page-hero p{font-size:.8rem}
+      .profile-wrapper{margin-top:-.5rem}
+      .profile-card-header{padding:1.25rem;gap:.75rem}
+      .avatar-circle{width:50px;height:50px;font-size:1.25rem;border-width:2px}
+      .profile-header-info h2{font-size:1.1rem}
     }
   </style>
 </head>
