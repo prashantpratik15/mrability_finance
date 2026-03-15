@@ -94,14 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const counters = document.querySelectorAll('.counter');
 
   const animateCounter = (el) => {
-    const target = +el.dataset.target;
+    const target = parseInt(el.dataset.target, 10);
+    if (isNaN(target)) return;
+    const suffix = el.dataset.suffix || '';
     const duration = 2000;
     const start = performance.now();
     const update = (now) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(eased * target).toLocaleString('en-IN');
+      el.textContent = Math.floor(eased * target).toLocaleString('en-IN') + suffix;
       if (progress < 1) requestAnimationFrame(update);
     };
     requestAnimationFrame(update);
