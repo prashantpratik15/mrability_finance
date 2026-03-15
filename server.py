@@ -396,7 +396,7 @@ def require_admin(f):
 def gen_ref_id(loan_type):
     prefix = {'personal_loan':'PL','home_loan':'HL','business_loan':'BL',
               'car_loan':'CL','lap':'LAP','used_car_loan':'UCL',
-              'credit_card':'CC'}.get(loan_type, 'APP')
+              'credit_card':'CC','cc_od':'CCOD'}.get(loan_type, 'APP')
     return f"FN-{prefix}-{int(datetime.now().timestamp())}"
 
 def log_action(db, user_id, action, details=None):

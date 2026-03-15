@@ -581,6 +581,7 @@
             <option value="car_loan">Car Loan</option>
             <option value="lap">Loan Against Property</option>
             <option value="used_car_loan">Used Car Loan</option>
+            <option value="cc_od">CC / OD-DOD</option>
           </select>
           <span class="tbl-count" id="appCount"></span>
         </div>
@@ -668,6 +669,7 @@
               <option value="business_loan">Business Loan</option>
               <option value="lap">Loan Against Property</option>
               <option value="used_car_loan">Used Car Loan</option>
+              <option value="cc_od">CC / OD-DOD</option>
             </select>
             <span class="tbl-count" id="ratesCount"></span>
           </div>
@@ -737,6 +739,7 @@
           <option value="business_loan">Business Loan</option>
           <option value="lap">Loan Against Property</option>
           <option value="used_car_loan">Used Car Loan</option>
+          <option value="cc_od">CC / OD-DOD</option>
         </select>
       </div>
       <div>
@@ -813,6 +816,7 @@
           <option value="business_loan">Business Loan</option>
           <option value="used_car_loan">Used Car Loan</option>
           <option value="lap">Loan Against Property</option>
+          <option value="cc_od">CC / OD-DOD</option>
         </select>
       </div>
       <div>
@@ -1152,7 +1156,7 @@ async function viewCustomerApps(id, name, email, mobile, role, joined) {
     const approved = apps.filter(a=>a.status==='Approved').length;
     const pending  = apps.filter(a=>a.status==='Submitted'||a.status==='Processing').length;
 
-    const loanIcons = { personal_loan:'💼', home_loan:'🏠', business_loan:'🏢', car_loan:'🚗', lap:'🏗️', used_car_loan:'🚘' };
+    const loanIcons = { personal_loan:'💼', home_loan:'🏠', business_loan:'🏢', car_loan:'🚗', lap:'🏗️', used_car_loan:'🚘', cc_od:'🏦' };
     const loanColors= { personal_loan:'#eff6ff', home_loan:'#ecfdf5', business_loan:'#fff7ed', car_loan:'#f5f3ff', lap:'#fef2f2', used_car_loan:'#f0fdf4' };
 
     body.innerHTML = `
@@ -1197,7 +1201,7 @@ async function viewCustomerApps(id, name, email, mobile, role, joined) {
           : `<div style="text-align:center;padding:1.5rem 0">
               <p style="color:var(--text-light);font-size:.85rem;margin-bottom:1rem">No applications yet — apply on behalf:</p>
               <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center">
-                ${['personal-loan.html|💼 Personal Loan','home-loan.html|🏠 Home Loan','business-loan.html|🏢 Business Loan','car-loan.html|🚗 Car Loan','lap.html|🏗️ Loan Against Property','used-car-loan.html|🛵 Two Wheeler'].map(l=>{const[url,label]=l.split('|');const q='?apply_for='+encodeURIComponent(name)+'&apply_mobile='+encodeURIComponent(mobile||'')+'&apply_email='+encodeURIComponent(email);return '<a href="'+url+q+'" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">'+label+'</a>';}).join('')}
+                ${['personal-loan.html|💼 Personal Loan','home-loan.html|🏠 Home Loan','business-loan.html|🏢 Business Loan','car-loan.html|🚗 Car Loan','lap.html|🏗️ Loan Against Property','used-car-loan.html|🛵 Two Wheeler','cc-od.html|🏦 CC/OD-DOD'].map(l=>{const[url,label]=l.split('|');const q='?apply_for='+encodeURIComponent(name)+'&apply_mobile='+encodeURIComponent(mobile||'')+'&apply_email='+encodeURIComponent(email);return '<a href="'+url+q+'" target="_blank" class="btn btn-primary" style="padding:.4rem .875rem;font-size:.75rem;border-radius:8px;text-decoration:none">'+label+'</a>';}).join('')}
               </div>
             </div>`}
       </div>
@@ -1283,7 +1287,7 @@ async function openAppDrawer(appId) {
     document.getElementById('appDrwTitle').textContent = `Application — ${a.ref_id}`;
 
     // Build all field groups
-    const loanIcons = { personal_loan:'💼', home_loan:'🏠', business_loan:'🏢', car_loan:'🚗', lap:'🏗️', used_car_loan:'🚘' };
+    const loanIcons = { personal_loan:'💼', home_loan:'🏠', business_loan:'🏢', car_loan:'🚗', lap:'🏗️', used_car_loan:'🚘', cc_od:'🏦' };
 
     body.innerHTML = `
       <!-- Header -->
@@ -1505,7 +1509,8 @@ function renderPag(prefix, total, current, fn) {
 ══════════════════════════════════════════════════ */
 function loanLabel(t) {
   const m = { personal_loan:'Personal Loan', home_loan:'Home Loan', business_loan:'Business Loan',
-    car_loan:'Car Loan', lap:'Loan Against Property', used_car_loan:'Used Car Loan', credit_card:'Credit Card' };
+    car_loan:'Car Loan', lap:'Loan Against Property', used_car_loan:'Used Car Loan', credit_card:'Credit Card',
+    cc_od:'CC / OD-DOD' };
   return m[t] || (t||'—').replace(/_/g,' ');
 }
 function fmt(n) { try { return Number(n).toLocaleString('en-IN'); } catch { return n; } }
