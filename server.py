@@ -864,8 +864,9 @@ def admin_users():
 
     where_parts, params = [], []
     if search:
-        where_parts.append("(name LIKE ? OR mobile LIKE ? OR email LIKE ?)")
-        params.extend([f'%{search}%', f'%{search}%', f'%{search}%'])
+        s = search.lower()
+        where_parts.append("(LOWER(name) LIKE ? OR mobile LIKE ? OR LOWER(email) LIKE ?)")
+        params.extend([f'%{s}%', f'%{s}%', f'%{s}%'])
     if role:
         where_parts.append("role=?")
         params.append(role)
@@ -893,8 +894,9 @@ def admin_applications():
 
     conditions, params = [], []
     if search:
-        conditions.append("(a.full_name LIKE ? OR a.mobile LIKE ? OR a.email LIKE ? OR a.ref_id LIKE ?)")
-        params.extend([f'%{search}%'] * 4)
+        s = search.lower()
+        conditions.append("(LOWER(a.full_name) LIKE ? OR a.mobile LIKE ? OR LOWER(a.email) LIKE ? OR LOWER(a.ref_id) LIKE ?)")
+        params.extend([f'%{s}%'] * 4)
     if status:
         conditions.append("a.status = ?"); params.append(status)
     if loan_type:
@@ -969,14 +971,14 @@ def admin_credit_scores():
                    u.email AS user_email
             FROM credit_scores cs
             LEFT JOIN users u ON cs.user_id = u.id
-            WHERE cs.name LIKE ? OR cs.pan LIKE ? OR cs.mobile LIKE ? OR u.email LIKE ?
+            WHERE LOWER(cs.name) LIKE ? OR LOWER(cs.pan) LIKE ? OR cs.mobile LIKE ? OR LOWER(u.email) LIKE ?
             ORDER BY cs.checked_at DESC LIMIT ? OFFSET ?
-        """, (f'%{search}%', f'%{search}%', f'%{search}%', f'%{search}%', limit, (page-1)*limit)).fetchall()
+        """, (f'%{search.lower()}%', f'%{search.lower()}%', f'%{search.lower()}%', f'%{search.lower()}%', limit, (page-1)*limit)).fetchall()
         total = db.execute("""
             SELECT COUNT(*) AS c FROM credit_scores cs
             LEFT JOIN users u ON cs.user_id = u.id
-            WHERE cs.name LIKE ? OR cs.pan LIKE ? OR cs.mobile LIKE ? OR u.email LIKE ?
-        """, (f'%{search}%', f'%{search}%', f'%{search}%', f'%{search}%')).fetchone()['c']
+            WHERE LOWER(cs.name) LIKE ? OR LOWER(cs.pan) LIKE ? OR cs.mobile LIKE ? OR LOWER(u.email) LIKE ?
+        """, (f'%{search.lower()}%', f'%{search.lower()}%', f'%{search.lower()}%', f'%{search.lower()}%')).fetchone()['c']
     else:
         rows  = db.execute("""
             SELECT cs.id, cs.name, cs.pan, cs.mobile, cs.score, cs.tier, cs.checked_at,
