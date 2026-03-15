@@ -125,21 +125,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Fetch live rates from admin panel ---- */
   const heroStats = document.querySelector('.page-hero-stats[data-loan-type]');
-  if (heroStats) {
-    const loanType = heroStats.dataset.loanType;
+  const productCards = document.querySelectorAll('.product-card[data-loan-type]');
+
+  if (heroStats || productCards.length) {
     fetch('/api/rates/summary')
       .then(r => r.json())
       .then(data => {
-        const info = data[loanType];
-        if (!info) return;
-        heroStats.querySelectorAll('[data-rate-field]').forEach(el => {
-          const field = el.dataset.rateField;
-          if (field === 'starting_rate' && info.starting_rate != null) {
-            el.textContent = info.starting_rate + '% p.a.';
-          } else if (field === 'max_amount' && info.max_amount) {
-            el.textContent = info.max_amount;
-          } else if (field === 'max_tenure' && info.max_tenure != null) {
-            el.textContent = info.max_tenure + ' yrs';
+        if (heroStats) {
+          const info = data[heroStats.dataset.loanType];
+          if (info) {
+            heroStats.querySelectorAll('[data-rate-field]').forEach(el => {
+              const field = el.dataset.rateField;
+              if (field === 'starting_rate' && info.starting_rate != null) {
+                el.textContent = info.starting_rate + '% p.a.';
+              } else if (field === 'max_amount' && info.max_amount) {
+                el.textContent = info.max_amount;
+              } else if (field === 'max_tenure' && info.max_tenure != null) {
+                el.textContent = info.max_tenure + ' yrs';
+              }
+            });
+          }
+        }
+
+        productCards.forEach(card => {
+          const info = data[card.dataset.loanType];
+          if (!info) return;
+          const desc = card.querySelector('.product-rate-desc');
+          if (desc && info.max_amount && info.starting_rate != null) {
+            desc.textContent = 'Up to ' + info.max_amount + ' at ' + info.starting_rate + '% p.a.';
           }
         });
       })

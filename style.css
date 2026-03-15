@@ -989,12 +989,13 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 .page-hero-inner p { font-size: 1rem; color: rgba(255,255,255,.7); max-width: 560px; margin-bottom: 2rem; }
 .page-hero-stats {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 1.5rem;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
 }
-.ph-stat { text-align: center; }
-.ph-stat strong { display: block; font-size: 1.5rem; font-weight: 800; color: #fff; }
-.ph-stat span { font-size: 0.75rem; color: rgba(255,255,255,.55); }
+.ph-stat { text-align: center; flex-shrink: 0; }
+.ph-stat strong { display: block; font-size: 1.35rem; font-weight: 800; color: #fff; }
+.ph-stat span { font-size: 0.7rem; color: rgba(255,255,255,.55); }
 
 .loan-details-grid {
   display: grid;
@@ -1289,7 +1290,9 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
   .page-hero { padding: 5rem 0 1.5rem; }
   .page-hero-inner h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
   .page-hero-inner p { margin-bottom: 1rem; font-size: 0.9rem; }
-  .page-hero-stats { gap: 1.25rem; }
+  .page-hero-stats { gap: 1rem; }
+  .ph-stat strong { font-size: 1.15rem; }
+  .ph-stat span { font-size: 0.65rem; }
   .loan-details-grid { padding: 2rem 0; gap: 1.5rem; }
   .loan-details-grid > .apply-form-card { order: -1; }
   .section-pad { padding: 3rem 0; }
@@ -1334,7 +1337,9 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
   .calc-tabs { overflow-x: auto; }
   .calcs-grid { grid-template-columns: 1fr; }
   .cards-listing-grid { grid-template-columns: 1fr; }
-  .page-hero-stats { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .page-hero-stats { gap: 0.6rem; justify-content: center; }
+  .ph-stat strong { font-size: 1rem; }
+  .ph-stat span { font-size: 0.6rem; }
   .loan-card { width: 240px; padding: 1.25rem; }
   .lc-back { left: 10px; }
   .lc-mid { left: 5px; }
