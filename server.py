@@ -1315,6 +1315,54 @@ def get_rates_public():
     return jsonify({'rates': dict(grouped), 'flat': [dict(r) for r in rows]})
 
 
+@app.route('/api/rates/summary', methods=['GET'])
+def get_rates_summary():
+    """Returns min starting rate, highest max_amount, and max tenure per loan type."""
+    db = get_db()
+    rows = db.execute("""
+        SELECT loan_type,
+               MIN(rate_min)  AS starting_rate,
+               MAX(rate_max)  AS max_rate,
+               MAX(tenure_max) AS max_tenure
+        FROM interest_rates
+        GROUP BY loan_type
+    """).fetchall()
+    # For max_amount we need the row with the highest numeric value, but it's stored as text.
+    # Fetch all and parse client-side, or just get all max_amount per type.
+    all_rows = db.execute("SELECT loan_type, max_amount FROM interest_rates").fetchall()
+    max_amounts = {}
+    for r in all_rows:
+        lt = r['loan_type']
+        amt = r['max_amount'] or '—'
+        if lt not in max_amounts:
+            max_amounts[lt] = amt
+        else:
+            # Compare by extracting number
+            def parse_amt(s):
+                s = s.replace('₹','').replace(',','').strip()
+                if 'Crore' in s or 'Cr' in s:
+                    n = float(s.replace('Crore','').replace('Cr','').strip()) * 10000000
+                elif 'Lakh' in s or 'L' in s:
+                    n = float(s.replace('Lakh','').replace('L','').strip()) * 100000
+                else:
+                    try: n = float(s)
+                    except: n = 0
+                return n
+            if parse_amt(amt) > parse_amt(max_amounts[lt]):
+                max_amounts[lt] = amt
+
+    summary = {}
+    for r in rows:
+        lt = r['loan_type']
+        summary[lt] = {
+            'starting_rate': r['starting_rate'],
+            'max_rate': r['max_rate'],
+            'max_tenure': r['max_tenure'],
+            'max_amount': max_amounts.get(lt, '—')
+        }
+    return jsonify(summary)
+
+
 @app.route('/api/rates/calculators', methods=['GET'])
 def get_calc_defaults():
     """Returns calculator default rates. Public — no auth needed."""

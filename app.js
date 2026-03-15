@@ -123,6 +123,29 @@ document.addEventListener('DOMContentLoaded', () => {
     counters.forEach(animateCounter);
   }
 
+  /* ---- Fetch live rates from admin panel ---- */
+  const heroStats = document.querySelector('.page-hero-stats[data-loan-type]');
+  if (heroStats) {
+    const loanType = heroStats.dataset.loanType;
+    fetch('/api/rates/summary')
+      .then(r => r.json())
+      .then(data => {
+        const info = data[loanType];
+        if (!info) return;
+        heroStats.querySelectorAll('[data-rate-field]').forEach(el => {
+          const field = el.dataset.rateField;
+          if (field === 'starting_rate' && info.starting_rate != null) {
+            el.textContent = info.starting_rate + '% p.a.';
+          } else if (field === 'max_amount' && info.max_amount) {
+            el.textContent = info.max_amount;
+          } else if (field === 'max_tenure' && info.max_tenure != null) {
+            el.textContent = info.max_tenure + ' yrs';
+          }
+        });
+      })
+      .catch(() => {});
+  }
+
   /* ---- Range slider dynamic fill ---- */
   const updateSliderFill = (slider) => {
     const min = +slider.min, max = +slider.max, val = +slider.value;
