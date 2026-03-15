@@ -338,12 +338,13 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow: visible;
 }
-.trust-item { display: flex; flex-direction: column; }
+.trust-item { display: flex; flex-direction: column; flex-shrink: 0; }
 .trust-item strong { font-size: 1.3rem; font-weight: 800; color: #fff; }
-.trust-item span { font-size: 0.75rem; color: rgba(255,255,255,.55); }
-.trust-divider { width: 1px; height: 36px; background: rgba(255,255,255,.2); }
+.trust-item span { font-size: 0.75rem; color: rgba(255,255,255,.55); white-space: nowrap; }
+.trust-divider { width: 1px; height: 36px; background: rgba(255,255,255,.2); flex-shrink: 0; }
 
 /* Hero Visual */
 .hero-visual { position: relative; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
@@ -1252,10 +1253,10 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
   .hero-visual { order: 1; margin-bottom: -1rem; }
   .hero-actions { justify-content: center; gap: 0.5rem; }
   .hero-actions a { padding: 0.65rem 1.5rem; font-size: 0.9rem; }
-  .hero-trust { justify-content: center; gap: 0.75rem; margin-top: 0.25rem; }
-  .hero-trust .trust-item strong { font-size: 0.95rem; }
-  .hero-trust .trust-item span { font-size: 0.6rem; }
-  .hero-trust .trust-divider { height: 22px; }
+  .hero-trust { justify-content: center; gap: 0.5rem; margin-top: 0.25rem; }
+  .hero-trust .trust-item strong { font-size: 0.85rem; }
+  .hero-trust .trust-item span { font-size: 0.55rem; }
+  .hero-trust .trust-divider { height: 20px; }
   .hero-card-stack { display: none; }
   .hero-visual { display: none; }
   .hero-score-widget { display: none; }
@@ -1315,9 +1316,10 @@ input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
   .hero-desc { font-size: 0.8rem; margin-bottom: 0.5rem; line-height: 1.4; }
   .hero-title { font-size: clamp(1.3rem, 5vw, 1.7rem); margin-bottom: 0.35rem; }
   .hero-badge { font-size: 0.65rem; padding: 0.2rem 0.6rem; margin-bottom: 0.35rem; }
-  .hero-trust .trust-item strong { font-size: 0.9rem; }
-  .hero-trust .trust-item span { font-size: 0.55rem; }
-  .hero-trust .trust-divider { height: 20px; }
+  .hero-trust { gap: 0.4rem; }
+  .hero-trust .trust-item strong { font-size: 0.8rem; }
+  .hero-trust .trust-item span { font-size: 0.5rem; }
+  .hero-trust .trust-divider { height: 18px; }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 0.4rem; }
   .hero-actions a { text-align: center; padding: 0.6rem 1rem; font-size: 0.85rem; }
 
